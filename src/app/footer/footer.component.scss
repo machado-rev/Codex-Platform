@@ -1,0 +1,47 @@
+.footer-logo{
+    margin-bottom: 2rem;
+    text-align: center;
+
+    img{
+        max-width: 120px;
+        filter: brightness(0) invert(1);
+    }
+}
+.social-links{
+    border-top: 1px solid rgba(255, 255, 255, 0.192);
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    .team-social li a {
+        font-size: 13px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #0d0c37;
+        display: inline-block;
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #16154d;
+        &:hover{
+            border-color: #fff;
+        }
+    }
+}
+
+.container-custom{
+    padding: 1rem 8vw;
+}
+.social-responsive{
+    display: none;
+    text-align: center;
+}
+@media screen and (max-width:991px){
+    .social-desktop{
+        display: none;
+    }
+    .social-responsive{
+        display: block;
+    }
+}

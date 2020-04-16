@@ -1,0 +1,249 @@
+
+
+.search{
+    position: relative;
+    border-radius: 3rem;
+    outline: none;
+    width: 350px;
+    input{
+        border-radius: 3rem;
+        height: 50px;
+    }
+}
+
+
+/*------------------------------------
+  MENU NAVIGATION AREA
+----------------------------------*/
+.site-navigation,
+.trans-navigation {
+    padding: 1rem 5vw 1rem 4vw;
+}
+
+.site-navigation .navbar-nav a,
+.trans-navigation .navbar-nav a {
+  font-family: Raleway;
+  font-size: 1rem ;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.site-navigation .navbar-nav a.active,
+.trans-navigation .navbar-nav a.active {
+  color: red;
+}
+
+.header-white {
+  position: fixed;
+  top: 0px;
+  background: #111;
+  z-index: 9999;
+  width: 100%;
+  left: 0;
+  transition: all .5s ease 0s;
+  color: #000 !important;
+}
+
+.navbar-expand-lg.trans-navigation .navbar-nav .nav-link,
+.navbar-expand-lg.site-navigation .navbar-nav .nav-link {
+  padding: 0px 24px;
+}
+
+.navbar-expand-lg.trans-navigation .navbar-nav .nav-link:last-child,
+.navbar-expand-lg.site-navigation .navbar-nav .nav-link:last-child {
+  padding-right: 0px;
+}
+
+.site-navigation,
+.trans-navigation {
+  transition: all .5s ease 0s;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+  margin-right: 60px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.navbar-brand span {
+  font-weight: 400;
+}
+
+.navbar-expand-lg.trans-navigation .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.trans-navigation {
+  background: transparent;
+}
+
+.trans-navigation.header-white {
+  background: #111;
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem;
+
+  .search input{
+    height: 50px;
+  }
+}
+
+.trans-navigation.header-white .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.trans-navigation.header-white .navbar-nav a.active {
+  color: #635CDB;
+}
+
+.navbar-brand img {
+  max-width: 100px;
+ filter: brightness(0) invert(1);
+}
+
+.trans-navigation.header-white .btn-white {
+  background: #635CDB;
+  color: #fff;
+}
+
+/* ===============================
+ DROPDOWN MENU
+================================*/
+.navbar-expand-lg.trans-navigation .navbar-nav .nav-link.dropdown-toggle {
+  padding-right: 0px;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  transition: all 300ms ease;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  top: 120%;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05), -2px 0px 5px 1px rgba(0, 0, 0, 0.05);
+  border: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #635CDB;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  opacity: 0;
+}
+
+.dropdown-menu.show {
+  -webkit-animation: .2s forwards b;
+          animation: .2s forwards b;
+}
+.navbar-buttons{
+  display: flex;
+  align-items: center;
+}
+.search-mobile{
+  position: absolute;
+    top: 110%;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    animation: fade_up 0.3s forwards ease-out;
+    display: none;
+}
+.search-mobile.show-search{
+  display: block;
+}
+@keyframes fade_up{
+  0%{
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.search-btn{
+  display: none;
+  margin-right: 10px;
+  background-color: transparent;
+  border:none;
+  span{
+    i{
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  }
+}
+@-webkit-keyframes b {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes b {
+  to {
+    opacity: 1;
+  }
+}
+
+.dropdown-item {
+  font-size: .6875rem;
+  font-weight: 500;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  transition: background-color .1s;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1200px) {
+  .dropdown-item {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dropdown-item + .dropdown-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width:991px){
+  .search-desktop{
+    display: none;
+  }
+  .search-btn{
+    display: block;
+  }
+  .navbar-nav{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #101010;
+
+    .nav-link{
+      padding: 0 !important;
+      margin-bottom: 2rem;
+    }
+  }
+  .navbar-brand{
+    img{
+      width: 70px;
+    }
+  }
+}
