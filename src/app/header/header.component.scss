@@ -37,7 +37,7 @@
   position: fixed;
   top: 0px;
   background: #111;
-  z-index: 9999;
+  z-index: 1000;
   width: 100%;
   left: 0;
   transition: all .5s ease 0s;
@@ -47,6 +47,7 @@
 .navbar-expand-lg.trans-navigation .navbar-nav .nav-link,
 .navbar-expand-lg.site-navigation .navbar-nav .nav-link {
   padding: 0px 24px;
+  cursor: pointer;
 }
 
 .navbar-expand-lg.trans-navigation .navbar-nav .nav-link:last-child,

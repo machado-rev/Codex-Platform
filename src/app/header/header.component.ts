@@ -21,6 +21,14 @@ export class HeaderComponent implements OnInit {
   $('#search-btn').on('click', function () {
     $('.search-mobile').toggleClass('show-search');
   });
+
+  $('.nav-link').on('click', function () {
+    if($('.collapse').hasClass('show')){
+      $('.collapse').removeClass('show')
+    }
+    else
+    $('.collapse').addClass('show')
+  });
   }
 
 }

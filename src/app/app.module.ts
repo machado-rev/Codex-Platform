@@ -7,6 +7,8 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { OwlModule } from 'ngx-owl-carousel';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { HomepageComponent } from './homepage/homepage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    OwlModule
   
   ],
   providers: [],
