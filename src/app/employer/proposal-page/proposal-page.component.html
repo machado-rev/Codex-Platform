@@ -1,0 +1,185 @@
+<div class="header pb-6 d-flex align-items-center">
+    <!-- Mask -->
+    <span class="mask"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <h1 class="display-2 text-white">Proposal Page</h1>
+          <a [routerLink]="['/employer/job-proposals']" class="btn btn-secondary">
+            <i class="icofont-long-arrow-left"></i>  
+            Back to All Proposals</a>
+             
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2">
+        <div class="card border-0 card-profile">
+            <img
+              src="../../assets/img/bg/pattern-bg.jpg"
+              alt="Image placeholder"
+              class="card-img-top cover-photo"
+            />
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img
+                      src="../../assets/img/theme/team-4.jpg"
+                      class="rounded-circle"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-sm btn-dark" [routerLink]="['/employer/view-freelancer']"
+                  ><i class="icofont-eye-alt"></i> View Freelancer</button
+                >
+               
+              </div>
+            </div>
+            <div class="parent-wrapper">
+              <div class="card-body pt-0" id="basic-content">
+                <div class="text-center">
+                  <h5 class="h3">
+                    Freelancer Name
+                  </h5>
+                  <h6>
+                    example123@codex.com
+                  </h6>
+                  <div class="h5 font-weight-300">
+                    <i class="ni location_pin mr-2"></i>Address
+                  </div>
+                  <div class="h5 mt-4">
+                    <i class="ni business_briefcase-24 mr-2"></i>Frontend Developer
+                  </div>
+                  <div class="row ">
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-star text-yellow"></i>
+                               3.5
+                            </div>
+                            Rating
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                              $13
+                            </div>
+                            per hour
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-tick-mark text-primary"></i>
+                               45
+                            </div>
+                            Jobs Completed
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-money-bag text-success"></i>
+                               $12k
+                            </div>
+                            Earned
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+             
+            </div>
+           
+          </div>
+      </div>
+      <div class="col-xl-8 order-xl-1">
+       
+        <div class="card">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col-12 header-flex">
+                  <div>
+                    <h5>Proposal By:</h5>
+                    <h2 class="mb-0">Freelancer Name</h2>
+                  </div>
+                <div class="action-btn">
+                    <a class="btn btn-dark text-white" >
+                        <i class="icofont-listing-box"></i>
+                        Shortlist
+                    </a>
+
+                    <a class="btn btn-default text-white ml-2" >
+                        <i class="icofont-tick-boxed"></i>
+                        Hire
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                     
+      
+                      <div class="job-section">
+                        <h4>
+                          Can complete project in:
+                          <span class="text-default">12 Days</span>
+                        </h4>
+                        <h4>
+                          Offered Price:
+                          <a class="text-default" href=""> $50 </a>
+                        </h4>
+                        <hr />
+                      </div>
+      
+                      <div class="job-section">
+                        <h3>
+                          Propsal Description:
+                        </h3>
+                        <p class="mt-2 text-justify">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Iure voluptatem doloremque iusto cupiditate, corrupti aut
+                          dolorum laudantium. Soluta exercitationem a ducimus tempore
+                          earum omnis doloremque rerum repellat ex totam nulla magnam
+                          provident ipsa repellendus perferendis sapiente aliquam
+                          aperiam enim rem, facere fugit, voluptatem doloribus
+                          distinctio laborum? Pariatur sequi ab sit accusamus
+                          distinctio dolores repellendus consequuntur!
+                        </p>
+                        <hr />
+                      </div>
+      
+                      <div class="job-section">
+                        <h3 class="mb-3">
+                          Screening Questions Responses:
+                        </h3>
+                      <div *ngFor="let item of screeningQuestions;let i = index">
+                        <p class="question">Q{{i+1}}. {{item.title}} </p>
+                        <p class="answer"> {{item.answer}} </p>
+                      </div>
+                      <hr>
+                      </div>
+
+                     
+                    </div>
+      
+                   
+                  </div>
+                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

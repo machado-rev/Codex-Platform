@@ -1,0 +1,24 @@
+@import '../edit-freelancer-profile/edit-freelancer-profile.component.scss';
+@import '../../main-website/job-desc/job-desc.component.scss';
+
+.header {
+    min-height: 250px;
+    background-image:  url(/assets/img/bg/pattern-3.png);
+      background-size: 50%;
+      background-repeat: round;
+      background-position: right;
+  }
+
+.number{
+    font-size: 1.5rem;
+}
+
+.question,.answer{
+  font-size: 0.9rem;
+}
+.question{
+  color: #222;
+  margin-bottom: 0.2rem;
+  
+  font-weight: 700;
+}

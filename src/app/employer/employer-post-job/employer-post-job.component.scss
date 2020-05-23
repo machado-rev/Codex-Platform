@@ -1,0 +1,20 @@
+@import '../../main-website/post-job/post-job.component.scss';
+
+.header {
+    min-height: 250px;
+    background-image:linear-gradient(135deg, rgba(17, 17, 17, 0.904) 0%, rgba(17, 17, 17, 0.842) 100%), url(/assets/img/banner/pattern-3.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right;
+  }
+
+  
+.download a {
+    box-shadow: inherit;
+    border:none;
+    border-radius: auto;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    display: block;
+    text-align: left;
+    width:100%;
+}

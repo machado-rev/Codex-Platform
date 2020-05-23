@@ -1,0 +1,48 @@
+@import '../../main-website/job-desc/job-desc.component.scss';
+
+.header {
+    min-height: 250px;
+    background-image:linear-gradient(135deg, rgba(17, 17, 17, 0.904) 0%, rgba(17, 17, 17, 0.842) 100%), url(/assets/img/banner/pattern-3.png);
+      background-size: 50%;
+      background-repeat: round;
+      background-position: right;
+  }
+
+.question,.answer{
+  font-size: 0.9rem;
+}
+.question{
+  color: #222;
+  margin-bottom: 0.2rem;
+  
+  font-weight: 700;
+}
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}
+
+.job-data{
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    
+    .number{
+        font-weight: 700;
+        font-size: 1.2rem;
+        color:#32325d;
+    }
+}
+
+.header-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+@media all and (max-width:576px){
+  .header-flex{
+      flex-direction: column;
+  }
+}

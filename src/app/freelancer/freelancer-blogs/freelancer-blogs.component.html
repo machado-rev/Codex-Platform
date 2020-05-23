@@ -1,0 +1,87 @@
+<div class="header bg-blue-gradient pb-2">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h1 text-white d-inline-block mb-0">Freelancer Blogs</h6>
+
+          </div>
+          <div class="col-lg-6 col-5 text-right dropdown" *ngIf="showFilter">
+            <a href="#" class="btn btn-sm btn-neutral" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-filter" aria-hidden="true"></i>
+              Filters</a>
+            <div class="dropdown-menu  dropdown-menu-right ">
+              <a (click)="filterAllBlogs()" class="dropdown-item">
+                <i class="icofont-list text-primary" ></i>
+                <span>All Blogs</span>
+              </a>
+              <a (click)="filterApprovedBlogs()" class="dropdown-item">
+                <i class="icofont-check text-success"></i>
+                <span>Approved Blogs</span>
+              </a>
+              <a (click)="filterPendingBlogs()" class="dropdown-item">
+                <i class="icofont-clock-time text-warning" aria-hidden="true"></i>
+                <span>Pending Blogs</span>
+              </a>
+              <a (click)="filterRejectedBlogs()" class="dropdown-item">
+                <i class="icofont-trash text-warning" aria-hidden="true"></i>
+                <span>Rejected Blogs</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid">
+    <h2 class="sub-heading p-2 border-bottom my-4">{{blogsType | titlecase}} Blogs</h2>
+    <div class="row justify-content-center">
+      <div class="col">
+           <div class="row">
+             <div class="col-lg-4 col-md-6" *ngFor="let blog of blogsToDisplay">
+              <div class="card">
+               
+                <!-- Card image -->
+                <img class="card-img-top" src="assets/img/wrapper-bg.jpeg" alt="Image placeholder">
+
+                <!-- Card body -->
+                <div class="card-body">
+                  <h5 class="h2 card-title my-0 text-bold">{{blog.title}} </h5>
+                  <div class="d-flex justify-content-end mt-2">
+                    <!-- <small class="text-muted">by <strong class="text-dark">date</strong></small> -->
+                    <small class="text-muted">{{blog.date}}</small>
+                  </div>
+
+                  <!-- <p class="card-text mt-4">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p> -->
+                  <hr class="my-3">
+                  <div class="d-flex justify-content-between">
+                    <div class="status">
+                      <div class="btn btn-sm btn-outline-warning mt-2" *ngIf="blog.status == 'pending'">
+                        <i class="icofont-clock-time" aria-hidden="true"></i>
+                        Pending
+                    </div>
+                    <div class="btn btn-sm btn-outline-success mt-2" *ngIf="blog.status == 'approved'">
+                        <i class="icofont-checked" aria-hidden="true"></i>
+                        Approved
+                    </div>
+                    <div class="btn btn-sm btn-outline-danger mt-2" *ngIf="blog.status == 'rejected'">
+                        <i class="icofont-trash" aria-hidden="true"></i>
+                        Rejected
+                    </div>
+                    </div>
+                    <a class="btn btn-sm btn-primary text-white" [routerLink]="['/freelancer/view-blog']">View Blog</a>
+                  </div>
+
+                </div>
+              </div>
+             </div>
+           </div>
+          
+       
+      </div>
+    </div>
+  </div>
+

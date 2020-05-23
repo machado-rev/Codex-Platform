@@ -1,0 +1,422 @@
+<div class="header pb-6 d-flex align-items-center">
+    <!-- Mask -->
+    <span class=""></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-12 col-md-10">
+          <h1 class="display-2 text-white">View Freelancer</h1>
+
+          <a [routerLink]="['/employer/proposal']" class="btn btn-secondary">
+            <i class="icofont-long-arrow-left"></i>  
+            Back to Proposal</a>
+          <!-- <p class="text-white mt-0 mb-5">
+            Welcome to your profile page. <br />
+            You can see the progress you've made with your work and manage your
+            projects.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2">
+        <div class="card border-0 card-profile">
+            <img
+              src="../../assets/img/bg/pattern-bg.jpg"
+              alt="Image placeholder"
+              class="card-img-top cover-photo"
+            />
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img
+                      src="../../assets/img/theme/team-4.jpg"
+                      class="rounded-circle"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              
+            </div>
+            <div class="">
+              <div class="card-body pt-0" id="basic-content">
+                <div class="text-center">
+                  <h5 class="h3 mt-4">
+                    Freelancer Name
+                  </h5>
+                  <h6>
+                    example123@codex.com
+                  </h6>
+                  <div class="h5 font-weight-300">
+                    <i class="ni location_pin mr-2"></i>Address
+                  </div>
+                  <div class="h5 mt-4">
+                    <i class="ni business_briefcase-24 mr-2"></i>Frontend Developer
+                  </div>
+                  <div class="row ">
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-star text-yellow"></i>
+                               3.5
+                            </div>
+                            Rating
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                              $13
+                            </div>
+                            per hour
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-tick-mark text-primary"></i>
+                               45
+                            </div>
+                            Jobs Completed
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="job-data text-dark">
+                            <div class="number">
+                                <i class="icofont-money-bag text-success"></i>
+                               $12k
+                            </div>
+                            Earned
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+             
+            </div>
+           
+          </div>
+      </div>
+      <div class="col-xl-8 order-xl-1">
+     
+        <div class="card">
+          <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-12 header-flex">
+                    <div>
+                     
+                      <h2 class="mb-0">Freelancer profile</h2>
+                    </div>
+                  <div class="action-btn">
+                      <a class="btn btn-dark text-white" >
+                          <i class="icofont-listing-box"></i>
+                          Shortlist
+                      </a>
+  
+                      <a class="btn btn-default text-white ml-2" >
+                          <i class="icofont-tick-boxed"></i>
+                          Hire
+                      </a>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">
+                    Professional Overview
+                  </h6>
+                </div>
+                
+              </div>
+  
+              <div class="">
+                <p class="text-dark p" id="overview-content">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
+                  quibusdam nam ipsum explicabo cum, deserunt provident culpa,
+                  doloribus magnam ex aspernatur deleniti. Provident rem neque
+                  dolore dolor laboriosam eos quas tenetur, distinctio fugiat
+                  libero aliquid tempore, pariatur corrupti unde deserunt
+                  exercitationem. Deleniti, perspiciatis! Recusandae, ex?
+                </p>
+               
+              </div>
+  
+              <div class="pl-lg-4">
+              </div>
+              <hr class="my-4" />
+              <!-- Address -->
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">Skills</h6>
+                </div>
+                
+              </div>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div
+                    class="col-lg-3 col-md-3 col-sm-4 col-6"
+                    *ngFor="let skill of selectedTechnologies"
+                  >
+                    <div class="skill text-dark">
+                      {{ skill }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4" />
+              <!-- Description -->
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">Experience Level</h6>
+                </div>
+               
+              </div>
+              <div class="pl-lg-4">
+               
+                  <div class="form-group" id="level-content">
+                    <h3 class="text-uppercase text-primary">
+                        <i class="icofont-star-alt-1"></i>
+                        <i class="icofont-star-alt-1"></i>
+                      <span class="text-dark">
+                        Intermediate
+                      </span>
+                    </h3>
+                  </div>
+                
+               
+                
+              </div>
+  
+              <hr class="my-4" />
+              <!-- Description -->
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">Portfolio</h6>
+                </div>
+                
+              </div>
+              <div class="pl-lg-4">
+                <div *ngIf="!portfolioArray.length">
+                  <div class="no-content">
+                    <div class="icon m-auto text-warning">
+                      <i class="icofont-warning-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="p text-center">
+                      No portfolio items to show.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="experience-details"
+                  *ngFor="let item of portfolioArray"
+                >
+                  <div class="row align-items-center">
+                    <div class="col-md-6">
+                     
+                      <p class="p mb-0 text-dark">
+                        {{ item.title }}
+                      </p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                       
+                        <button class="btn btn-sm btn-default" data-toggle="modal"
+                        data-target="#viewPortfolio" type="button">
+                            <i class="icofont-eye"></i>
+                            View Item</button>
+                      </div>
+                  </div>
+  
+                </div>
+              </div>
+  
+              <hr class="my-4" />
+              <!-- Description -->
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">
+                    Working Experience
+                  </h6>
+                </div>
+                
+              </div>
+              <div class="pl-lg-4">
+                <div *ngIf="!expArray.length">
+                  <div class="no-content">
+                    <div class="icon m-auto text-warning">
+                      <i class="icofont-warning-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="p text-center">
+                      No experience to show.
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-details" *ngFor="let exp of expArray">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5>
+                        Job title:
+                      </h5>
+                      <p>
+                        {{ exp.title }}
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <h5>
+                        Job Company:
+                      </h5>
+                      <p>
+                        {{ exp.company }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5>
+                        Start working on:
+                      </h5>
+                      <p>
+                        {{ exp.startDate }}
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <h5>
+                        Worked till:
+                      </h5>
+                      <p>
+                        {{ exp.endDate }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h5>Work Summary</h5>
+                      <p>
+                        {{ exp.summary }}
+                      </p>
+                    </div>
+                  </div>
+                  
+                 
+                </div>
+              </div>
+              <hr class="my-4" />
+              <!-- Description -->
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="heading-small text-muted mb-4">Qualifications</h6>
+                </div>
+                <div class="col-sm-4 text-right">
+                 
+                </div>
+              </div>
+              <div class="pl-lg-4">
+                <div *ngIf="!qualArray.length">
+                  <div class="no-content">
+                    <div class="icon m-auto text-warning">
+                      <i class="icofont-warning-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="p text-center">
+                      No qualifications to show.
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-details" *ngFor="let qual of qualArray">
+                  <div class="row" *ngIf="qualArray.length">
+                    <div class="col-md-6">
+                      <h5>
+                        Professional Cerificate or Award:
+                      </h5>
+                      <p>
+                        {{ qual.certificate }}
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <h5>
+                        Conferring Organization
+                      </h5>
+                      <p>
+                        {{ qual.organization }}
+                      </p>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h5>Qualification Summary</h5>
+                      <p>
+                        {{ qual.summary }}
+                      </p>
+                    </div>
+                  </div>
+                 
+                  
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ <!--qualification form-->
+<div class="modal" id="viewPortfolio">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header position-relative">
+          <h4 class="modal-title">Portfolio Item</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <h5 class="mt-4">Project Title</h5>
+  <h2 class="mb-0 text-dark">
+    {{portfolioArray[0].title}}
+  </h2>
+
+<div class="row">
+<div class="col-lg-12">
+  <h5 class="mt-4">Project Summary</h5>
+  <p class="p">
+    {{portfolioArray[0].summary}}
+  </p>
+</div>
+<div class="col-lg-12" >
+  <h5 class="mt-4">Project Link</h5>
+  <p class="p">
+    <a href="{{portfolioArray[0].link}}" target="_blank">
+        {{portfolioArray[0].link}}
+    </a>
+  </p>
+</div>
+<div class="col-lg-12" >
+  <h5 class="mt-4">Project Files</h5>
+  <div class="row">
+      <div class="col-md-6" *ngFor="let img of portfolioArray[0].files">
+          <img [src]="img" alt="">
+      </div>
+  </div>
+  
+</div>
+
+
+</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

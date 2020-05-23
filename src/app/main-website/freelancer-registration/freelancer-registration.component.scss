@@ -1,0 +1,64 @@
+@import '../post-job/post-job.component.scss';
+
+.bg-feature{
+    background-size: 10%;
+    background-repeat: round;
+}
+
+.form-container-head{
+    background-color: #635CDB;
+    padding: 1rem;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border: 1.2px solid #19185186;
+    .text{
+        color: #fff;
+        text-align: center;
+
+    }
+}
+.form-head{
+    margin-top: 1rem;
+    h2{
+        font-size: 1.5rem;
+    }
+}
+.option-small{
+    min-height: 50px;
+    padding: 0.5rem 1rem;
+}
+.skills-tab{
+    .radio{
+        margin-top: 0.5rem;
+    }
+    .radio-option{
+        display: block;
+    }
+}
+.selected-skills{
+    .skill{
+        padding: 0.5rem 1rem;
+        background-color: #efefef;
+        margin-bottom: 0.5rem;
+    }
+}
+.segment-head{
+    border-bottom: 1px solid #ccc;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.no-content{
+    text-align: center;
+    margin: 1rem 0;
+    border-radius: 4px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    i{
+        font-size: 2rem;
+    }
+}
+
+.experience-details{
+    border-bottom: 2px solid #cccc;
+    padding: 1rem 0;
+}

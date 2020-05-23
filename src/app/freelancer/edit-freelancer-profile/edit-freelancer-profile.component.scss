@@ -1,0 +1,68 @@
+@import '../../main-website/freelancer-registration/freelancer-registration.component.scss';
+.header {
+  min-height: 500px;
+  background-image:  url(/assets/img/bg/pattern-3.png);
+    background-size: 50%;
+    background-repeat: round;
+    background-position: right;
+}
+.mask{
+    background-image: linear-gradient(to right, #3330a3, #4530a3ea)
+}
+.number{
+    font-size: 4rem;
+}
+
+.cover-photo{
+    max-height: 200px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.p{
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.skill{
+    background-color: #fcfcfc;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+}
+
+.modal-header{
+    position: absolute;
+    width: 100%;
+    z-index: 500;
+
+    .modal-title{
+        font-size: 1.4rem;
+    }
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  
+    button{
+      margin-right: 2rem;
+    }
+  }
+
+  .edit-form{
+      display: none;
+  }
+
+  .close-btn{
+      display: none;
+  }
+
+  .edit-btn,.close-btn{
+    float: right;
+  }

@@ -1,0 +1,156 @@
+<!--MAIN BANNER AREA START -->
+<div class="banner-1 top-banner" id="page-banner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="job-container">
+            <div class="job-card">
+              <div class="job-heading">
+                <h2>
+                  Place bid for the job
+                </h2>
+              </div>
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="job-section">
+                    <h4 class="job-title">
+                      Job Title:
+                    </h4>
+                    <h5>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eveniet sint repellat est quas molestiae?
+                    </h5>
+                    <hr />
+                  </div>
+  
+                  <div class="job-section">
+                    <h5>
+                      Price:
+                      <span class="text-default">$50/hr</span>
+                    </h5>
+                    <h5>
+                      Category:
+                      <a class="text-default" href="">Web Development </a>
+                    </h5>
+                    <hr />
+                  </div>
+  
+                  <div class="place-bid-form">
+                    <form>
+                        <div class="form-segment">
+                          <h4 class="form-title">
+                            Describe your Bid
+                          </h4>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea
+                                      type="text"
+                                      class="form-control"
+                                      placeholder="Enter the description of your bid"
+                                      required=""
+                                    ></textarea>
+                                  </div>
+                                  <div class="field-info">
+                                    0/1000 characters (minimum 50 required)
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
+        
+                        <div class="form-segment">
+                          <h4 class="form-title">
+                           Enter your proposals:
+                          </h4>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="bid-amount">Bid Amount</label>
+                               <input class="form-control" id="bid-amount" type="number" placeholder="Enter the amount of your bid" />
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="days">No. of days to complete project</label>
+                                 <input class="form-control" id="days" type="number" placeholder="Number of days to complete project"/>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+
+                        <div class="form-segment">
+                            <h4 class="form-title">
+                             Screening Questions
+                            </h4>
+
+                            <h6 class="text-muted">
+                                The questions below are posted by employer for selection process. Kindly answer the following questions to place your bid
+                            </h6>
+
+                            <div class="form-group" *ngFor="let item of screeningQuestions">
+                                <label [for]="item.id">{{item.title}}</label>
+                                <input type="text" [id]="item.id" class="form-control" placeholder="Type answer here">
+                            </div>
+                            
+                          </div>
+        
+                        <div class="text-right mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-hero"
+                            data-toggle="modal" data-target="#confirmModal"
+                          >
+                            Submit Bid
+                          </button>
+                        </div>
+                      </form>
+                  </div>
+                </div>
+  
+                <div class="col-lg-4">
+                    <div class="place-bid ">
+                        <a [routerLink]="['/job-desc']" class="btn btn-hero">
+                            View Job Description
+                        </a>
+                    </div>
+  
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MAIN HEADER AREA END -->
+  
+
+  <!--modals-->
+
+  <!--questions modals-->
+<div class="modal" id="confirmModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+       
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmation for your bid</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+       
+        <div class="modal-body">
+          <div class="form-segment">
+              Are you sure you want to place this bid.
+            </div>
+        </div>
+  
+       
+        <div class="modal-footer">
+            <button type="button" class="btn btn-hero" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

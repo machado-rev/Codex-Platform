@@ -1,0 +1,1667 @@
+<!--MAIN BANNER AREA START -->
+<div class="page-banner-area page-contact" id="page-banner">
+  <div class="overlay dark-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+        <div class="banner-content content-padding">
+          <h1 class="text-white">Post New Job</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+            commodi, perspiciatis blanditiis dolorum fugiat consequatur nemo
+            delectus impedit perferendis ab?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--MAIN HEADER AREA END -->
+
+<section class="section blog-wrap">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="post-job-box">
+          <h1>Click the button below to post a job</h1>
+          <button class="btn btn-hero mt-4" (click)="formFunc.openForm()">
+            Post a Job
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="jobs-filters mt-0">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="sidebar-widget category"></div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="sidebar-widget download">
+                <h3 class="mb-4">Progress</h3>
+                <a [class.active-tab]="formNumber == 1">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>Title</a
+                >
+                <a [class.active-tab]="formNumber == 2">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i
+                  >Description</a
+                >
+                <a [class.active-tab]="formNumber == 3">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i
+                  >Details</a
+                >
+                <a [class.active-tab]="formNumber == 4">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i
+                  >Expertise</a
+                >
+                <a [class.active-tab]="formNumber == 5">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i
+                  >Visibility</a
+                >
+                <a [class.active-tab]="formNumber == 6">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>Budget</a
+                >
+                <a [class.active-tab]="formNumber == 7">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>Review</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="forms-container" [ngSwitch]="formNumber">
+          <div class="form-close">
+            <div class="logo">
+              <img src="assets/img/logo.PNG" alt="">
+            </div>
+            <button class="btn" (click)="formFunc.closeForm()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+          <div class="form-box" *ngSwitchCase="0">
+            <div class="form-head">
+              <h2>
+                Getting Started
+              </h2>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4>
+                    What would you like to do?
+                  </h4>
+                  <div class="radio">
+                    <input id="new" name="radio" type="radio" (change)="newJob = true"/>
+                    <label for="new" class="radio-label"
+                      >Create a new job post</label
+                    >
+                  </div>
+
+                  <div class="row" *ngIf="newJob">
+                    <div class="col-md-5">
+                      <div class="radio">
+                        <input type="radio" name="time" id="short-term" />
+                        <label
+                          class="radio-label radio-option"
+                          for="short-term"
+                        >
+                          <div class="option custom-shadow">
+                            <div class="icon">
+                              <i class="fa fa-clock" aria-hidden="true"></i>
+                            </div>
+                            <h4>Short Term</h4>
+                            <p>
+                              Less than 30hrs/week
+                            </p>
+                            <p>
+                              Less than 3 months
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="radio">
+                        <input type="radio" name="time" id="long-term" />
+                        <label class="radio-label radio-option" for="long-term">
+                          <div class="option custom-shadow">
+                            <div class="icon">
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </div>
+                            <h4>Long Term</h4>
+                            <p>
+                              More than 30hrs/week
+                            </p>
+                            <p>
+                              3+ months
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="radio">
+                    <input id="existing" name="radio" type="radio" (change)="newJob = false" />
+                    <label for="existing" class="radio-label"
+                      >Edit an existing draft</label
+                    >
+                  </div>
+                </div>
+                <div class="button-container">
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="form-box" *ngSwitchCase="1">
+            <div class="form-head">
+              <h2>
+                Give Title
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Enter title of the Job
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Title"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Job Category:
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="job-category">Select Category</label>
+                        <select id="job-category" class="form-control">
+                          <option value="">Category</option>
+                          <option value="accounting"
+                            >Accounting & Consulting</option
+                          >
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="job-spec">Select Specialization</label>
+                        <select id="job-spec" class="form-control">
+                          <option value="">Specialization</option>
+                          <option value="data-entry">Data Entry</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="form-box" *ngSwitchCase="2">
+            <div class="form-head">
+              <h2>
+                Description
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Enter the description for the Job
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter description"
+                          required=""
+                        ></textarea>
+                      </div>
+                      <div class="field-info">
+                        0/5000 characters (minimum 50 required)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="form-box" *ngSwitchCase="3">
+            <div class="form-head">
+              <h2>
+                Details
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Which type of project do you have?
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="project" id="onetime" />
+                              <label
+                                class="radio-label radio-option"
+                                for="onetime"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-clock"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>One-Time Project</h4>
+                                  <p>
+                                    Find the right skills for short term need
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="project" id="ongoing" />
+                              <label
+                                class="radio-label radio-option"
+                                for="ongoing"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-user"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Ongoing Project</h4>
+                                  <p>
+                                    Find the skilled resourse for an extended
+                                    project
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="project" id="complex" />
+                              <label
+                                class="radio-label radio-option"
+                                for="complex"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-puzzle-piece"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Complex Project</h4>
+                                  <p>
+                                    Find specialized expertsfor large project
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-segment">
+                  <h4>Screnning Questions <span>(Optional)</span></h4>
+
+                  <button
+                    class="btn mt-4"
+                    type="button"
+                    (click)="showScreeningQuestion = !showScreeningQuestion"
+                  >
+                    <span *ngIf="!showScreeningQuestion">
+                      <i class="fa fa-plus" aria-hidden="true"></i> Add a
+                      Question</span
+                    >
+                    <span *ngIf="showScreeningQuestion"
+                      ><i class="fa fa-minus" aria-hidden="true"></i> Hide
+                      Questions</span
+                    >
+                  </button>
+                  <div
+                    class="screening-questions"
+                    *ngIf="showScreeningQuestion"
+                  >
+                    <div
+                      class="form-group"
+                      *ngFor="let ques of screeningQuestions"
+                    >
+                      <input
+                        class="form-control"
+                        type="checkbox"
+                        (change)="toggleScreeningQuestions(question)"
+                        [id]="ques.id"
+                        [value]="ques.title"
+                        #question
+                      />
+                      <label [for]="ques.id">{{ ques.title }}</label>
+                    </div>
+
+                    <hr />
+                   
+                      <h6>Didn't found your questions?</h6>
+                      <button class="btn" (click)="showAddQuestionField=true" >
+                        Add Your Question
+                      </button>
+
+                      <div class="add-question-field mt-4" *ngIf="showAddQuestionField">
+                            <input type="text" class="form-control" #customQuestion placeholder="Type your question here">
+                            <button class="btn btn-hero mt-2" type="button" (click)="addQuestion(customQuestion)">Submit</button>
+                      </div>
+                       
+                   
+                      
+                   
+                  </div>
+                  <hr>
+                  <div class="user-questions mt-4" *ngIf="userScreeningQuestions.length">
+                    <h3 class="mb-3">Your Questions</h3>
+                    <div *ngFor="let ques of userScreeningQuestions;let i =index">
+                    <h6 class="mb-1">{{i+1}}. {{ques}}</h6>
+                  </div>
+                  </div>
+                  <hr>
+                  <div class="selected-questions mt-4" *ngIf="selectedScreeningQuestions.length">
+                    <h3 class="mb-3">Selected Questions</h3>
+                    <div *ngFor="let ques of selectedScreeningQuestions;let i =index">
+                    <h6 class="mb-1">{{i+1}}. {{ques}}</h6>
+                  </div>
+                  </div>
+                
+                  
+                </div>
+                <div class="form-segment">
+                  <h5>
+                    Cover letter
+                  </h5>
+
+                  <p class="mt-2">
+                    If you don't add any screening questions, we'll require a
+                    cover letter to allow freelancers and agencies to introduce
+                    themselves.
+                  </p>
+                </div>
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="form-box" *ngSwitchCase="4">
+            <div class="form-head">
+              <h2>
+                Expertise
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    What skills and expertise are most important to you in
+                    Front-End Development?
+                  </h4>
+
+                  <div class="expertise-section">
+                    <div class="expertise-tab" *ngFor="let exp of expertise">
+                      <h5>{{ exp.title }} ({{ exp.type | titlecase }})</h5>
+                      <div class="expertise-options">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let option of exp.options">
+                            <span
+                            class="expertise-option"
+                          
+                          >
+                            <input
+                              class="form-control"
+                              type="checkbox"
+                              [id]="option"
+                              [value]="option"
+                            />
+                            <label [for]="option">{{ option }}</label>
+                          </span>
+                          </div>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-segment">
+                  <h5>
+                    What additional skills and expertise are most important to
+                    you?
+                  </h5>
+
+                  <div class="expertise-options">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let option of addtionalSkills">
+                        <span
+                        class="expertise-option"
+                        
+                      >
+                        <input
+                          class="form-control"
+                          type="checkbox"
+                          [id]="option"
+                          [value]="option"
+                        />
+                        <label [for]="option">{{ option }}</label>
+                      </span>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="form-box" *ngSwitchCase="5">
+            <div class="form-head">
+              <h2>
+                Visibility
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Who can see your job?
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="visible" id="anyone" />
+                              <label
+                                class="radio-label radio-option"
+                                for="anyone"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-users"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Anyone</h4>
+                                  <p>
+                                    Freelancers and agencies using Upwork and
+                                    public search engines can find this job.
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="visible" id="upwork" />
+                              <label
+                                class="radio-label radio-option"
+                                for="upwork"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-user"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Only Upwork Talent</h4>
+                                  <p>
+                                    Only Upwork users can find this job.
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="visible" id="invite" />
+                              <label
+                                class="radio-label radio-option"
+                                for="invite"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-lock"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Invite-Only</h4>
+                                  <p>
+                                    Only freelancers and agencies you have
+                                    invited can find this job.
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    How many people do you need for this job?
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input
+                                type="radio"
+                                name="times"
+                                id="one"
+                                (change)="manyFreelancers = false"
+                              />
+                              <label class="radio-label radio-option" for="one">
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-user"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>One Freelancer</h4>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input
+                                type="radio"
+                                name="times"
+                                id="many"
+                                (change)="manyFreelancers = true"
+                              />
+                              <label
+                                class="radio-label radio-option"
+                                for="many"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-users"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>More than one Freelancer</h4>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group" *ngIf="manyFreelancers">
+                              <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Enter number of freelancers"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    Talent Preferences (optional)
+                  </h4>
+
+                  <p>
+                    Specify the qualifications you're looking for in a
+                    successful proposal.
+                  </p>
+
+                  <button class="btn" type="button" (click)="addTalentPreferences = !addTalentPreferences">
+                    <span *ngIf="!addTalentPreferences">
+                      <i class="fa fa-plus" aria-hidden="true"></i> ADD
+                    </span>
+                    <span *ngIf="addTalentPreferences">
+                      <i class="fa fa-minus" aria-hidden="true"></i> HIDE
+                    </span>
+                  </button>
+
+                  <div class="talent-preferences" *ngIf="addTalentPreferences">
+
+                    <p class="mt-4">
+                        Freelancers and agencies may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
+                    </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="talent-type">Talent Type</label>
+                          <select class="form-control" id="talent-type">
+                            <option value="">No Preferences</option>
+                            <option value="indepedent">Independent</option>
+                            <option value="agency">Agency</option>
+                          </select>
+                        </div>
+                      </div>
+                      <br />
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="location">Location</label>
+                          <select class="form-control" id="location">
+                            <option value="">Select a Country</option>
+                            <option value="Afganistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa"
+                              >American Samoa</option
+                            >
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antigua & Barbuda"
+                              >Antigua & Barbuda</option
+                            >
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bonaire">Bonaire</option>
+                            <option value="Bosnia & Herzegovina"
+                              >Bosnia & Herzegovina</option
+                            >
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Ter"
+                              >British Indian Ocean Ter</option
+                            >
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Canary Islands"
+                              >Canary Islands</option
+                            >
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands"
+                              >Cayman Islands</option
+                            >
+                            <option value="Central African Republic"
+                              >Central African Republic</option
+                            >
+                            <option value="Chad">Chad</option>
+                            <option value="Channel Islands"
+                              >Channel Islands</option
+                            >
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island"
+                              >Christmas Island</option
+                            >
+                            <option value="Cocos Island">Cocos Island</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote DIvoire">Cote DIvoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Curaco">Curacao</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic"
+                              >Czech Republic</option
+                            >
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic"
+                              >Dominican Republic</option
+                            >
+                            <option value="East Timor">East Timor</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea"
+                              >Equatorial Guinea</option
+                            >
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands"
+                              >Falkland Islands</option
+                            >
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia"
+                              >French Polynesia</option
+                            >
+                            <option value="French Southern Ter"
+                              >French Southern Ter</option
+                            >
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Great Britain">Great Britain</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="India">India</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Isle of Man">Isle of Man</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea North">Korea North</option>
+                            <option value="Korea Sout">Korea South</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedonia">Macedonia</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands"
+                              >Marshall Islands</option
+                            >
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Midway Islands"
+                              >Midway Islands</option
+                            >
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Nambia">Nambia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherland Antilles"
+                              >Netherland Antilles</option
+                            >
+                            <option value="Netherlands"
+                              >Netherlands (Holland, Europe)</option
+                            >
+                            <option value="Nevis">Nevis</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island"
+                              >Norfolk Island</option
+                            >
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau Island">Palau Island</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea"
+                              >Papua New Guinea</option
+                            >
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Phillipines">Philippines</option>
+                            <option value="Pitcairn Island"
+                              >Pitcairn Island</option
+                            >
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Republic of Montenegro"
+                              >Republic of Montenegro</option
+                            >
+                            <option value="Republic of Serbia"
+                              >Republic of Serbia</option
+                            >
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="St Barthelemy">St Barthelemy</option>
+                            <option value="St Eustatius">St Eustatius</option>
+                            <option value="St Helena">St Helena</option>
+                            <option value="St Kitts-Nevis"
+                              >St Kitts-Nevis</option
+                            >
+                            <option value="St Lucia">St Lucia</option>
+                            <option value="St Maarten">St Maarten</option>
+                            <option value="St Pierre & Miquelon"
+                              >St Pierre & Miquelon</option
+                            >
+                            <option value="St Vincent & Grenadines"
+                              >St Vincent & Grenadines</option
+                            >
+                            <option value="Saipan">Saipan</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="Samoa American"
+                              >Samoa American</option
+                            >
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome & Principe"
+                              >Sao Tome & Principe</option
+                            >
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands"
+                              >Solomon Islands</option
+                            >
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Tahiti">Tahiti</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad & Tobago"
+                              >Trinidad & Tobago</option
+                            >
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks & Caicos Is"
+                              >Turks & Caicos Is</option
+                            >
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="United Kingdom"
+                              >United Kingdom</option
+                            >
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Erimates"
+                              >United Arab Emirates</option
+                            >
+                            <option value="United States of America"
+                              >United States of America</option
+                            >
+                            <option value="Uraguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City State"
+                              >Vatican City State</option
+                            >
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Virgin Islands (Brit)"
+                              >Virgin Islands (Brit)</option
+                            >
+                            <option value="Virgin Islands (USA)"
+                              >Virgin Islands (USA)</option
+                            >
+                            <option value="Wake Island">Wake Island</option>
+                            <option value="Wallis & Futana Is"
+                              >Wallis & Futana Is</option
+                            >
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zaire">Zaire</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <p>
+                                  Job Success Score
+                              </p>
+                            <div class="radio">
+                                <input id="anysuccess" name="jobsucess" type="radio" checked />
+                                <label for="anysuccess" class="radio-label"
+                                  >Any Job Success</label>
+                              </div>
+                              <div class="radio">
+                                <input id="above80" name="jobsucess" type="radio"  />
+                                <label for="above80" class="radio-label"
+                                  >80% and above</label>
+                              </div>
+                              <div class="radio">
+                                <input id="above90" name="jobsucess" type="radio"  />
+                                <label for="above90" class="radio-label"
+                                  >90% and above</label>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <p>
+                                Amount Earned
+                            </p>
+                            <div class="radio">
+                                <input id="anyamount" name="amountearned" type="radio" checked />
+                                <label for="anyamount" class="radio-label"
+                                  >Any Amount Earned</label>
+                              </div>
+                          <div class="radio">
+                              <input id="100k" name="amountearned" type="radio" />
+                              <label for="100k" class="radio-label"
+                                >100K+ Earned</label>
+                            </div>
+                            <div class="radio">
+                              <input id="10k" name="amountearned" type="radio" />
+                              <label for="10k" class="radio-label"
+                                >10K+ Earned</label>
+                            </div>
+                            <div class="radio">
+                              <input id="1k" name="amountearned" type="radio" />
+                              <label for="1k" class="radio-label"
+                                >1K+ Earned</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <p>
+                                English Level
+                            </p>
+                            <div class="radio">
+                                <input id="anylevel" name="englishlevel" type="radio" checked />
+                                <label for="anylevel" class="radio-label"
+                                  >Any Level</label>
+                              </div>
+                          <div class="radio">
+                              <input id="converstional" name="englishlevel" type="radio" />
+                              <label for="converstional" class="radio-label"
+                                >Coversational or better</label>
+                            </div>
+                            <div class="radio">
+                              <input id="fluent" name="englishlevel" type="radio" />
+                              <label for="fluent" class="radio-label"
+                                >Fluent or better</label>
+                            </div>
+                            <div class="radio">
+                              <input id="native" name="englishlevel" type="radio" />
+                              <label for="native" class="radio-label"
+                                >Native or Billiangual</label>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="form-box" *ngSwitchCase="6">
+            <div class="form-head">
+              <h2>
+                Budget
+              </h2>
+              <p>Step {{ formNumber }} of 7</p>
+            </div>
+            <div class="form-content">
+              <form>
+                <div class="form-segment">
+                  <h4 class="form-title">
+                    How would you like to pay your freelancer or agency?
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="paymenthod" id="hour" (change)="payFixed = false;payByHour=true" />
+                              <label
+                                class="radio-label radio-option"
+                                for="hour"
+                              >
+                                <div class="option custom-shadow">
+                                  <div class="icon">
+                                    <i
+                                      class="fa fa-clock"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                  <h4>Pay by the hour</h4>
+                                  <p>
+                                    Popular for ongoing projects.
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="radio">
+                              <input type="radio" name="paymenthod" id="fixed" (change)="payFixed = true;payByHour=false"/>
+                              <label
+                                class="radio-label radio-option"
+                                for="fixed"
+                              >
+                                <div class="option custom-shadow" >
+                                  <div class="icon">
+                                    <i class="fa fa-dollar-sign" aria-hidden="true"></i>
+
+                                  </div>
+                                  <h4>Pay a fixed price</h4>
+                                  <p>
+                                    Popular for one-time projects.
+                                  </p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pay-fixed-box"  *ngIf="payFixed">
+                    <div class="form-segment">
+                        <h4 class="form-title">
+                          Specify your budget
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  placeholder="Enter your bugdet"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="form-segment">
+                        <h4 class="form-title">
+                            What level of experience should your freelancer have?
+                        </h4>
+                        <div class="form-group">
+                            <div class="row no-gutters">
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="entrylevel" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="entrylevel"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                      </div>
+                                      <h4>Entry</h4>
+                                    
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="intermediate" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="intermediate"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                      </div>
+                                      <h4>Intermediate</h4>
+                                    
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="expert" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="expert"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                      </div>
+                                      <h4>Expert</h4>
+                                    
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+                <div class="pay-by-hour-box"  *ngIf="payByHour">
+                   
+                      <div class="form-segment">
+                        <h4 class="form-title">
+                            What level of experience should your freelancer have?
+                        </h4>
+                        <div class="form-group">
+                            <div class="row no-gutters">
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="entrylevel" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="entrylevel"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                      </div>
+                                      <h4>Entry</h4>
+                                    <p>
+                                        Less than $20.00/hr
+                                    </p>
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="intermediate" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="intermediate"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                      </div>
+                                      <h4>Intermediate</h4>
+                                      <p>
+                                        $20.00/hr - $40.00/hr
+                                    </p>
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="freelanceExperience" id="expert" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="expert"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i
+                                          class="fa fa-dollar-sign"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                        <i
+                                        class="fa fa-dollar-sign"
+                                        aria-hidden="true"
+                                      ></i>
+                                      </div>
+                                      <h4>Expert</h4>
+                                      <p>
+                                        More than $40.00/hr
+                                    </p>
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="form-segment">
+                        <h4 class="form-title">
+                            How long do you expect this project to last?
+                        </h4>
+                        <div class="form-group">
+                            <div class="row no-gutters">
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="projectDuration" id="lessthanone" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="lessthanone"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                       <h2>
+                                           1
+                                       </h2>
+                                      </div>
+                                      <h4>less than a month</h4>
+                                    
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                    <input type="radio" name="projectDuration" id="one-three" />
+                                    <label
+                                      class="radio-label radio-option"
+                                      for="one-three"
+                                    >
+                                      <div class="option custom-shadow">
+                                        <div class="icon">
+                                         <h2>
+                                             1-3
+                                         </h2>
+                                        </div>
+                                        <h4>months</h4>
+                                      
+                                      </div>
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                    <input type="radio" name="projectDuration" id="three-six" />
+                                    <label
+                                      class="radio-label radio-option"
+                                      for="three-six"
+                                    >
+                                      <div class="option custom-shadow">
+                                        <div class="icon">
+                                         <h2>
+                                             3-6
+                                         </h2>
+                                        </div>
+                                        <h4>months</h4>
+                                      
+                                      </div>
+                                    </label>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="form-segment">
+                        <h4 class="form-title">
+                            Do you have a time requirement for this project?
+                        </h4>
+                        <div class="form-group">
+                            <div class="row no-gutters">
+                             
+                              <div class="col-md-4">
+                                <div class="radio">
+                                    <input type="radio" name="timeRequirement" id="less30" />
+                                    <label
+                                      class="radio-label radio-option"
+                                      for="less30"
+                                    >
+                                      <div class="option custom-shadow">
+                                        <h4>less than</h4>
+                                        <div class="icon">
+                                            
+                                         <h2>
+                                             30hrs
+                                         </h2>
+
+                                        </div>
+                                         <h4>per week</h4>
+                                      
+                                      </div>
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                    <input type="radio" name="timeRequirement" id="more30" />
+                                    <label
+                                      class="radio-label radio-option"
+                                      for="more30"
+                                    >
+                                      <div class="option custom-shadow">
+                                        <h4>more than</h4>
+                                        <div class="icon">
+                                            
+                                         <h2>
+                                             30hrs
+                                         </h2>
+                                         <h4>per week</h4>
+                                        </div>
+                                      
+                                      </div>
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="radio">
+                                  <input type="radio" name="timeRequirement" id="dontknow" />
+                                  <label
+                                    class="radio-label radio-option"
+                                    for="dontknow"
+                                  >
+                                    <div class="option custom-shadow">
+                                      <div class="icon">
+                                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+                                      </div>
+                                      <h4>I don't know</h4>
+                                    
+                                    </div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+               
+             
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="btn btn-hero btn-circled"
+                    (click)="goPrevious()"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-hero btn-circled"
+                    (click)="goNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="form-box" *ngSwitchCase="7">
+            <div class="form-head">
+                <h2>
+                  Review and Post
+                </h2>
+                <p>Step {{ formNumber }} of 7</p>
+              </div>
+              <div class="form-content">
+                  <h3>
+                      Confirm the details and post the job
+                  </h3>
+                  </div>
+                  <div class="button-container">
+                    <button
+                      type="button"
+                      class="btn btn-hero btn-circled"
+                      (click)="goPrevious()"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-hero btn-circled"
+                      data-toggle="modal" data-target="#confirmModal"
+                    >
+                      Submit Form
+                    </button>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MODALS -->
+
+<!--questions modals-->
+<div class="modal" id="confirmModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+       
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmation for Job Post</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+       
+        <div class="modal-body">
+          <div class="form-segment">
+              Are you sure you want to post the job.
+            </div>
+        </div>
+  
+       
+        <div class="modal-footer">
+            <button type="button" class="btn btn-hero" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+

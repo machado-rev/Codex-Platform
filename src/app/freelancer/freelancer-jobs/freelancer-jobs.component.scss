@@ -1,0 +1,20 @@
+.date, .price{
+    font-weight:700;
+    
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.date{
+    color:#212529;
+}
+
+.price{
+    font-size: 1.2rem;
+    color:#2dce89;
+    margin-top:2rem;
+}
+
+.job-card{
+    cursor: pointer;
+}
