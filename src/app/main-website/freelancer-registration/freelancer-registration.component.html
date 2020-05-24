@@ -443,7 +443,12 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="phone-number">Phone Number</label>
-                        <input type="number" id="phone-number" class="form-control" placeholder="Enter your phone number here"/>
+                        <input
+                          type="number"
+                          id="phone-number"
+                          class="form-control"
+                          placeholder="Enter your phone number here"
+                        />
                       </div>
                     </div>
                   </div>
@@ -457,13 +462,23 @@
                     <div class="col-md-8">
                       <div class="form-group">
                         <label for="hourly-rate">Hourly rate</label>
-                        <input type="number" id="hourly-rate" class="form-control" placeholder="Enter your hourly rate in dollars($)">
+                        <input
+                          type="number"
+                          id="hourly-rate"
+                          class="form-control"
+                          placeholder="Enter your hourly rate in dollars($)"
+                        />
                       </div>
                     </div>
                     <div class="col-md-8">
                       <div class="form-group">
                         <label for="speciality">Your Speciality</label>
-                        <input type="text" id="speciality" class="form-control" placeholder="Enter your speciality for eg. frontend developer, etc">
+                        <input
+                          type="text"
+                          id="speciality"
+                          class="form-control"
+                          placeholder="Enter your speciality for eg. frontend developer, etc"
+                        />
                       </div>
                     </div>
                   </div>
@@ -556,9 +571,10 @@
                           >
                             <input
                               type="checkbox"
+                              [checked]="technology.isChecked"
                               id="{{ technology.title }}"
                               value="{{ technology.title }}"
-                              (change)="selectTechnology(technologySelected)"
+                              (change)="selectTechnology(technologySelected,technology)"
                               #technologySelected
                             />
                             <label for="{{ technology.title }}">{{
@@ -873,8 +889,8 @@
                     Add Experience
                   </button>
                 </div>
-                <div class="no-content ">
-                  <div class="icon ">
+                <div class="no-content">
+                  <div class="icon">
                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                   </div>
                   No experience added.
