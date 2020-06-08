@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FreelancerRegistrationComponent } from './freelancer-registration.component';
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UploadFilesModule } from 'src/app/common/components/upload-files/upload-files.module';
 
 const routes: Route[]=[
     {
@@ -17,6 +18,7 @@ const routes: Route[]=[
   imports: [
     CommonModule,
     FormsModule,
+    UploadFilesModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]

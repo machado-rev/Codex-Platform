@@ -1,4 +1,4 @@
-
+@import 'sweetalert2/src/sweetalert2.scss';
 
 body {
   font-size: 16px;
@@ -180,6 +180,8 @@ button{
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+
 
 .btn:focus,
 .btn:active,
@@ -1592,6 +1594,10 @@ BLOG SINGLE
 }
 
 .validation{
+  font-weight: 700;
+  color: rgb(189, 8, 32);
+  font-size: 0.8rem;
+  animation: fade_in 0.2s ease-in forwards;
   p{
     font-weight: 700;
     color: rgb(189, 8, 32);

@@ -6,19 +6,19 @@
             <h6 class="h1 text-white d-inline-block mb-0">Post New Blog</h6>
 
           </div>
-         
+
         </div>
-       
+
       </div>
     </div>
   </div>
   <!-- Page content -->
   <div class="container-fluid mt--6">
-  
+
         <div class="card">
           <div class="card-header bg-transparent">
             <h2 class="mb-0">Blog Editor</h2>
-           
+
           </div>
           <div class="card-body">
     <form>
@@ -35,17 +35,21 @@
             <input type="file" class="form-control" id="blog-thumb">
           </div>
         </div>
+
+        <div class="com-md-10">
+          <quill-editor [modules]="config"></quill-editor>
+        </div>
       </div>
-     
+
     </form>
-  
+
     <div class="row justify-content-center">
       <div class="col">
            <div class="row">
-            
+
            </div>
-          
-       
+
+
       </div>
     </div>
   </div>

@@ -63,6 +63,10 @@
                   <i class="fa fa-check-circle" aria-hidden="true"></i
                   >Qualifications</a
                 >
+                <a [class.active-tab]="formNumber == 7">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i
+                  >Review</a
+                >
               </div>
             </div>
           </div>
@@ -92,7 +96,10 @@
               <p>Step {{ formNumber }} of 7</p>
             </div>
             <div class="form-content">
-              <form>
+              <form
+                [formGroup]="freelancerRegisteration"
+                (submit)="registerFreelancer()"
+              >
                 <div class="form-segment">
                   <h4 class="form-title">
                     About Yourself
@@ -116,11 +123,17 @@
                       <div class="form-group">
                         <label for="bio">Professional Overview</label>
                         <textarea
+                          formControlName="userDescription"
                           type="text"
                           id="bio"
                           class="form-control"
                           placeholder="Write something about yourself"
                         ></textarea>
+                        <div class="validation" *ngIf="(submittedForm && !freelancerRegisteration.get('userDescription').dirty) || (freelancerRegisteration.get('userDescription').invalid && freelancerRegisteration.get('userDescription').touched) ">
+                          <p>
+                            Please enter professional overview!
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -129,7 +142,11 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="country">Country</label>
-                        <select id="country" class="form-control">
+                        <select
+                          formControlName="userAddress"
+                          id="country"
+                          class="form-control"
+                        >
                           <option value="">Select your country</option>
                           <option value="Afganistan">Afghanistan</option>
                           <option value="Albania">Albania</option>
@@ -438,17 +455,11 @@
                           <option value="Zambia">Zambia</option>
                           <option value="Zimbabwe">Zimbabwe</option>
                         </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="phone-number">Phone Number</label>
-                        <input
-                          type="number"
-                          id="phone-number"
-                          class="form-control"
-                          placeholder="Enter your phone number here"
-                        />
+                        <div class="validation" *ngIf="(submittedForm && !freelancerRegisteration.get('userAddress').dirty) || (freelancerRegisteration.get('userAddress').invalid && freelancerRegisteration.get('userAddress').touched) ">
+                          <p>
+                            Please select your country!
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -463,22 +474,34 @@
                       <div class="form-group">
                         <label for="hourly-rate">Hourly rate</label>
                         <input
+                          formControlName="hourly_rate"
                           type="number"
                           id="hourly-rate"
                           class="form-control"
                           placeholder="Enter your hourly rate in dollars($)"
                         />
+                        <div class="validation" *ngIf="(submittedForm && !freelancerRegisteration.get('hourly_rate').dirty) || (freelancerRegisteration.get('hourly_rate').invalid && freelancerRegisteration.get('hourly_rate').touched) ">
+                          <p>
+                            Please enter your hourly rate!
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-8">
                       <div class="form-group">
                         <label for="speciality">Your Speciality</label>
                         <input
+                          formControlName="userSpeciality"
                           type="text"
                           id="speciality"
                           class="form-control"
                           placeholder="Enter your speciality for eg. frontend developer, etc"
                         />
+                        <div class="validation" *ngIf="(submittedForm && !freelancerRegisteration.get('userSpeciality').dirty) || (freelancerRegisteration.get('userSpeciality').invalid && freelancerRegisteration.get('userSpeciality').touched) ">
+                          <p>
+                            Please enter youry speciality!
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -574,7 +597,9 @@
                               [checked]="technology.isChecked"
                               id="{{ technology.title }}"
                               value="{{ technology.title }}"
-                              (change)="selectTechnology(technologySelected,technology)"
+                              (change)="
+                                selectTechnology(technologySelected, technology)
+                              "
                               #technologySelected
                             />
                             <label for="{{ technology.title }}">{{
@@ -638,12 +663,12 @@
           <div class="form-box" *ngSwitchCase="3">
             <div class="form-head">
               <h2>
-                Select Experience Level
+                Select Experience Level (Optional)
               </h2>
               <p>Step {{ formNumber }} of 6</p>
             </div>
             <div class="form-content">
-              <form>
+              <form [formGroup]="freelancerRegisteration">
                 <div class="form-segment">
                   <h4 class="form-title">
                     Select your experience
@@ -657,13 +682,15 @@
                               <div class="col-md-4">
                                 <div class="radio">
                                   <input
+                                    formControlName="experienceLevel"
                                     type="radio"
-                                    name="project"
-                                    id="onetime"
+                                    name="experienceLevel"
+                                    id="beginner"
+                                    value="beginner"
                                   />
                                   <label
                                     class="radio-label radio-option"
-                                    for="onetime"
+                                    for="beginner"
                                   >
                                     <div class="option custom-shadow">
                                       <div class="icon">
@@ -685,13 +712,15 @@
                               <div class="col-md-4">
                                 <div class="radio">
                                   <input
+                                  formControlName="experienceLevel"
                                     type="radio"
-                                    name="project"
-                                    id="ongoing"
+                                    name="experienceLevel"
+                                    id="intermediate"
+                                    value="intermediate"
                                   />
                                   <label
                                     class="radio-label radio-option"
-                                    for="ongoing"
+                                    for="intermediate"
                                   >
                                     <div class="option custom-shadow">
                                       <div class="icon">
@@ -717,13 +746,15 @@
                               <div class="col-md-4">
                                 <div class="radio">
                                   <input
+                                  formControlName="experienceLevel"
                                     type="radio"
-                                    name="project"
-                                    id="complex"
+                                    name="experienceLevel"
+                                    id="advanced"
+                                    value="expert"
                                   />
                                   <label
                                     class="radio-label radio-option"
-                                    for="complex"
+                                    for="advanced"
                                   >
                                     <div class="option custom-shadow">
                                       <div class="icon">
@@ -740,7 +771,7 @@
                                           aria-hidden="true"
                                         ></i>
                                       </div>
-                                      <h4>Advanced</h4>
+                                      <h4>Expert</h4>
                                       <p>
                                         You have been working with these skills
                                         for more than 5 years, and are an expert
@@ -781,7 +812,7 @@
           <div class="form-box" *ngSwitchCase="4">
             <div class="form-head">
               <h2>
-                Portfolio Items
+                Portfolio Items (Optional)
               </h2>
               <p>Step {{ formNumber }} of 6</p>
             </div>
@@ -874,7 +905,7 @@
           <div class="form-box" *ngSwitchCase="5">
             <div class="form-head">
               <h2>
-                Add Experience
+                Add Experience (Optional)
               </h2>
               <p>Step {{ formNumber }} of 6</p>
             </div>
@@ -975,7 +1006,7 @@
           <div class="form-box" *ngSwitchCase="6">
             <div class="form-head">
               <h2>
-                Add Qualifications
+                Add Qualifications (Optional)
               </h2>
               <p>Step {{ formNumber }} of 6</p>
             </div>
@@ -1047,10 +1078,40 @@
                 Previous
               </button>
               <button
-                type="submit"
+              type="submit"
+              class="btn btn-hero btn-circled"
+              (click)="goNext()"
+            >
+              Next
+            </button>
+            </div>
+          </div>
+
+          <div class="form-box" *ngSwitchCase="7">
+            <div class="form-head">
+              <h2>
+                Review your details
+              </h2>
+              <!-- <p>Step {{ formNumber }} of 6</p> -->
+            </div>
+            <div class="form-content">
+
+
+            Review Details come here
+
+            </div>
+            <div class="button-container">
+              <button
+                type="button"
                 class="btn btn-hero btn-circled"
-                data-toggle="modal"
-                data-target="#confirmModal"
+                (click)="goPrevious()"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                class="btn btn-hero btn-circled"
+               (click)="confirmPopup()"
               >
                 Submit Form
               </button>
@@ -1070,7 +1131,7 @@
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Add Experience</h4>
+        <h4 class="modal-title">Add Experience (Optional)</h4>
         <button type="button" class="close" data-dismiss="modal">
           &times;
         </button>
@@ -1456,21 +1517,10 @@
 
             <div class="form-segment">
               <h4 class="form-title">
-                Other details
+                Addtional details
               </h4>
               <div class="row">
                 <div class="col-md-10">
-                  <div class="form-group">
-                    <label for="files"
-                      >Select files for your portfolio items</label
-                    >
-                    <input
-                      type="file"
-                      id="files"
-                      formControlName="files"
-                      class="form-control"
-                    />
-                  </div>
                   <div class="form-group">
                     <label for="links">Project link</label>
                     <input
@@ -1481,6 +1531,22 @@
                       placeholder="Enter project link if any"
                     />
                   </div>
+
+                  <div class="form-group">
+                    <label for="files"
+                      >Select files for your portfolio items</label
+                    >
+                    <!-- <input
+                      type="file"
+                      id="files"
+                      formControlName="files"
+                      class="form-control"
+                    /> -->
+                    <div class="container">
+                      <app-upload-files (filesUploaded)="addPortfolioFiles($event)"></app-upload-files>
+                    </div>
+                  </div>
+                  
                   <!-- <div class="field-info">
                       {{ portfolioForm.get('summary').errors.minlength.length}}/5000 characters (minimum 50 required)
                     </div> -->
@@ -1516,7 +1582,7 @@
 </div>
 
 <!--questions modals-->
-<div class="modal" id="confirmModal">
+<!-- <div class="modal" id="confirmModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -1533,7 +1599,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-hero" data-dismiss="modal">
+        <button type="button" class="btn btn-hero" data-dismiss="modal" (click)="registerFreelancer()">
           Yes
         </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -1542,4 +1608,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,0 +1,25 @@
+@import '../blog-home/blog-home.component.scss';
+
+.blog-container{
+    margin-top: 3rem;
+
+    .h2{
+        margin-bottom: 2rem;
+    }
+}
+
+.side-blog-post{
+    padding: 1rem 1rem 0;
+    margin-bottom: 2rem;
+
+    .author-details{
+        padding: 0.8rem 0 0rem;
+    }
+}
+
+.big-post{
+    a.h4{
+        margin-top: 1rem;
+        display: block;
+    }
+}

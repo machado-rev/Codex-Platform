@@ -50,15 +50,15 @@
               <h5 class="h2 mb-0">{{currentHeading | titlecase}} Jobs</h5>
             </div>
             <!-- Card body -->
-           
+
             <div class="card-body p-0">
               <!-- List group -->
               <div class="list-group list-group-flush job-card" *ngFor="let job of jobsToDisplay">
                 <div class="list-group-item list-group-item-action flex-column align-items-start py-4 px-4">
                  <div class="row">
                      <div class="col-md-10">
-                        <h3 class="mb-1">{{job.title}}</h3>
-                        <p class="text-sm mb-0">{{job.desc}}</p>
+                        <h3 class="mb-1">{{job.jobTitle}}</h3>
+                        <p class="text-sm mb-0">{{job.jobDesc}}</p>
                         <div class="btn btn-sm btn-outline-warning mt-2" *ngIf="job.status == 'pending'">
                             <i class="icofont-clock-time" aria-hidden="true"></i>
                             Pending
@@ -78,24 +78,27 @@
                      </div>
                      <div class="col-md-2">
                        <div class="date">
-                        {{job.date}}
-                       </div> 
-                       <div class="price">
-                        ${{job.price}}/hr
-                       </div> 
+                        {{job.jobPosted | date: 'MMMM d,y'}}
+                       </div>
+                       <div class="price" *ngIf="job?.jobBudgetType == 'pay_by_hour'">
+                        ${{job.jobBudget}}/hr
+                       </div>
+                       <div class="price" *ngIf="job?.jobBudgetType == 'fixed_price'">
+                        ${{job.jobBudget}}
+                       </div>
                        <div class="text-right mt-2">
                         <a class="btn btn-sm btn-primary text-white" [routerLink]="['/freelancer/job-desc']">
                             View Job
                         </a>
                        </div>
-                      
+
                      </div>
                  </div>
-                 
+
                 </div>
-               
+
               </div>
-             
+
             </div>
           </div>
       </div>

@@ -1,42 +1,48 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
+export class Expertise {
+  expertiseArr = [
+    {
+      title: 'Front-End Development Deliverables',
+      type: 'optional',
+      options: [
+        { value: 'Prototype', checked: false },
+        { value: 'Web Design', checked: false },
+        { value: 'Animation', checked: false },
+      ],
+    },
+    {
+      title: 'Front-End Development Languages',
+      type: 'optional',
+      options: [
+        { value: 'HTML', checked: false },
+        { value: 'CSS', checked: false },
+        { value: 'JavaScripts', checked: false },
+        { value: 'SQL', checked: false },
+      ],
+    },
+    {
+      title: 'Front-End Development Skills',
+      type: 'optional',
+      options: [
+        { value: 'PhotoShop', checked: false },
+        { value: 'Google Analytics', checked: false },
+        { value: '.Net', checked: false },
+      ],
+    }
+  ];
 
-export class Expertise{
-    expertiseArr = [
-        {
-          title:'Front-End Development Deliverables',
-          type:'optional',
-          options:[
-            'Prototype','Web Design','Animation'
-          ],
-        },
-        {
-          title:'Front-End Development Languages',
-          type:'optional',
-          options:[
-            'HTML','CSS','JavaScripts','SQL'
-          ],
-        },
-        {
-          title:'Front-End Development Skills',
-          type:'optional',
-          options:[
-            'PhotoShop','Google Analytics','.Net'
-          ],
-        },
-        {
-          title:'Business Size Experience',
-          type:'optional',
-          options:[
-            'Very Small (1-9)','Small (10-99)','Mid (100-999)','Large (1000+)','Startup','Fortune 500'
-          ],
-        }
-      ]
-
-      additionalSkillsArr = [
-        'HTML','CSS','Website','SCSS', 'React', 'SASS', 'Bootstrap', 'Git', 'Redux', 'JSON', 'Web apps'
-      ]
+  additionalSkillsArr = [
+    {value: 'HTML', checked: false},
+    {value: 'CSS', checked: false},
+    {value: 'Redux', checked: false},
+    {value: 'SCSS', checked: false},
+    {value: 'React', checked: false},
+    {value: 'SASS', checked: false},
+    {value: 'Bootstrap', checked: false},
+    {value: 'Git', checked: false}
+  ];
 }

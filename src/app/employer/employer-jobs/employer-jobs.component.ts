@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmployerJobs } from 'src/app/dummy-data/employer-jobs';
+import { HttpService } from 'src/app/services/http.service';
+import { ShareService } from 'src/app/services/share.service';
 
 @Component({
   selector: 'app-employer-jobs',
@@ -10,7 +12,7 @@ import { EmployerJobs } from 'src/app/dummy-data/employer-jobs';
 export class EmployerJobsComponent implements OnInit {
 
   filter;
-  constructor(public state: ActivatedRoute, public jobsArr: EmployerJobs) { }
+  constructor(public state: ActivatedRoute, public jobsArr: EmployerJobs, public http: HttpService, public share: ShareService) { }
   currentHeading;
   showFilter;
   jobsToDisplay = [];
@@ -39,7 +41,14 @@ export class EmployerJobsComponent implements OnInit {
 
   getAllJobs(){
     this.showFilter = true;
-    this.jobsToDisplay = this.jobs;
+    this.http.postToBackend('/users/employer/jobs',{userName: this.share.user.username})
+    .then((res: any)=> {
+      console.log(res)
+      this.jobsToDisplay = res.data;
+    })
+    .catch(err=> {
+      console.log(err)
+    })
   }
 
   getActiveJobs(){
@@ -76,7 +85,7 @@ export class EmployerJobsComponent implements OnInit {
       }
     })
   }
-  
+
   filterDeletedJobs(){
     this.jobsToDisplay = [];
     this.currentHeading = 'deleted';

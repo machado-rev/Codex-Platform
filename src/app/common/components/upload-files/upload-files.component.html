@@ -1,0 +1,43 @@
+<div class="dropzone" appDnd (fileDropped)="onFileDropped($event)" >
+    <input [multiple]="!singleFile" type="file" name="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event.target.files)" />
+    <div class="text-center">
+        <img src="assets/img/icon/upload.svg" class="drop-icon" alt="">
+    </div>
+
+
+    <h3 class="text-center">Drag and Drop your files here</h3>
+
+    <h3 class="text-center">
+        or
+    </h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            <label for="fileDropRef" class="btn btn-sm btn-primary">Select a file</label>
+        </div>
+    </div>
+    <div class="validation" [class.show]="isMultipeFiles">
+        You can only attach one file!
+    </div>
+</div>
+
+<div class="files-list">
+	<div class="single-file" *ngFor="let file of files; let i = index">
+		<div class="file-icon" style="width: 50px">
+			<img src="assets/img/icon/file.svg" alt="">
+		</div>
+		<div class="info">
+			<h4 class="name">
+				{{ file?.name }}
+			</h4>
+			<p class="size">
+                {{ formatBytes(file?.size,2) }}
+			</p>
+			<!-- <app-progress-bar [progress]="file?.progress"></app-progress-bar> -->
+		</div>
+
+		<a class="delete" (click)="deleteFile(i)" title="Delete this file">
+			<i class="icofont-ui-delete text-danger"></i>
+        </a>
+	</div>
+</div>

@@ -15,6 +15,7 @@ const routes: Route[]=[
   declarations: [PlaceBidFormComponent],
   imports: [
     CommonModule,
+    FormsModule, ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })

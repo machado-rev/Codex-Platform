@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 declare var $:any;
 
 @Component({
@@ -8,10 +9,17 @@ declare var $:any;
 })
 export class FindJobComponent implements OnInit {
 
-  constructor() { }
+  jobs=[]
+  constructor(public http: HttpService) { }
 
   ngOnInit(): void {
     $('.option-overlay').on("click",this.toggleFilter);
+console.log('hit')
+    this.http.postToBackend('/jobs/all/approved',{})
+    .then((res: any)=> {
+      console.log(res)
+      this.jobs = res.data
+    })
   }
 
   toggleFilter(){

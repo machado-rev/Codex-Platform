@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { screeningQuestions } from 'src/app/dummy-data/screening-questions';
 import { Expertise } from 'src/app/dummy-data/expertise';
-import { FormFunctions } from 'src/app/common/styles/functions/form-general-functions';
+import { FormFunctions } from 'src/app/common/functions/form-general-functions';
 declare var $:any;
 
 @Component({

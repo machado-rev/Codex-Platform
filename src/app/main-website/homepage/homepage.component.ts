@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareService } from 'src/app/services/share.service';
 
 @Component({
   selector: 'app-homepage',
@@ -16,7 +17,7 @@ export class HomepageComponent implements OnInit {
     items: 1
   }
 
-  constructor() { }
+  constructor(public share: ShareService) { }
 
   ngOnInit(): void {
   }

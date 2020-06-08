@@ -6,68 +6,80 @@ import { Injectable } from "@angular/core";
 
 
 export class Skills {
-    skills =  [
+  skills = [
+    {
+      title: 'Web Development',
+      technologies: [
         {
-          title:'Web Development',
-          technologies: [
-            {
-              title: "HTML"
-            },
-            {
-              title: "CSS"
-            }
-            ,{
-              title: "Javascript"
-            }
-            ,{
-              title: "Angular"
-            }
-            ,{
-              title: "Nodejs"
-            }
-          ]
+          title: 'HTML',
+          isChecked: false,
         },
         {
-          title: "Designing",
-          technologies: [
-            {
-              title: "PhotoShop"
-            },
-            {
-              title: "Figma"
-            }
-            ,{
-              title: "Adobe Xd"
-            }
-            ,{
-              title: "Angular"
-            }
-            ,{
-              title: "Adobe Illustator"
-            }
-          ]
-         
+          title: 'CSS',
+          isChecked: false,
         },
         {
-          title:'Writing & Content',
-          technologies: [
-            {
-              title: "Article writing"
-            },
-            {
-              title: "Copyright Wrting"
-            }
-            ,{
-              title: "Content Writing"
-            }
-            ,{
-              title: "Research"
-            }
-          ]
-        }
-      ]
+          title: 'Javascript',
+          isChecked: false,
+        },
+        {
+          title: 'Angular',
+          isChecked: false,
+        },
+        {
+          title: 'Nodejs',
+          isChecked: false,
+        },
+      ],
+    },
+    {
+      title: 'Designing',
+      technologies: [
+        {
+          title: 'PhotoShop',
+          isChecked: false,
+        },
+        {
+          title: 'Figma',
+          isChecked: false,
+        },
+        {
+          title: 'Adobe Xd',
+          isChecked: false,
+        },
+        {
+          title: 'Angular',
+          isChecked: false,
+        },
+        {
+          title: 'Adobe Illustator',
+          isChecked: false,
+        },
+      ],
+    },
+    {
+      title: 'Writing & Content',
+      technologies: [
+        {
+          title: 'Article writing',
+          isChecked: false,
+        },
+        {
+          title: 'Copyright Wrting',
+          isChecked: false,
+        },
+        {
+          title: 'Content Writing',
+          isChecked: false,
+        },
+        {
+          title: 'Research',
+          isChecked: false,
+        },
+      ],
+    },
+  ];
 
       selectedTechnologies = [
-        'HTML',"CSS","JavaScript", "Angular", "SEO", "NodeJs"
       ]
 }

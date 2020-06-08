@@ -7,14 +7,14 @@
         <div class="col-lg-12 col-md-12">
           <h1 class="display-2 text-white">Proposal Page</h1>
           <a [routerLink]="['/employer/job-proposals']" class="btn btn-secondary">
-            <i class="icofont-long-arrow-left"></i>  
+            <i class="icofont-long-arrow-left"></i>
             Back to All Proposals</a>
-             
+
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="container-fluid mt--6">
     <div class="row">
       <div class="col-xl-4 order-xl-2">
@@ -41,20 +41,20 @@
                 <button class="btn btn-sm btn-dark" [routerLink]="['/employer/view-freelancer']"
                   ><i class="icofont-eye-alt"></i> View Freelancer</button
                 >
-               
+
               </div>
             </div>
             <div class="parent-wrapper">
               <div class="card-body pt-0" id="basic-content">
                 <div class="text-center">
                   <h5 class="h3">
-                    Freelancer Name
+                    {{info?.full_name}}
                   </h5>
                   <h6>
-                    example123@codex.com
+                    {{info?.email}}
                   </h6>
                   <div class="h5 font-weight-300">
-                    <i class="ni location_pin mr-2"></i>Address
+                    <i class="ni location_pin mr-2"></i>{{info?.address}}
                   </div>
                   <div class="h5 mt-4">
                     <i class="ni business_briefcase-24 mr-2"></i>Frontend Developer
@@ -64,7 +64,7 @@
                         <div class="job-data text-dark">
                             <div class="number">
                                 <i class="icofont-star text-yellow"></i>
-                               3.5
+                               {{info?.rating}}
                             </div>
                             Rating
                         </div>
@@ -72,7 +72,7 @@
                     <div class="col-6">
                         <div class="job-data text-dark">
                             <div class="number">
-                              $13
+                              ${{info?.hourly_rate}}
                             </div>
                             per hour
                         </div>
@@ -81,7 +81,7 @@
                         <div class="job-data text-dark">
                             <div class="number">
                                 <i class="icofont-tick-mark text-primary"></i>
-                               45
+                               {{info?.total_hired_job}}
                             </div>
                             Jobs Completed
                         </div>
@@ -90,7 +90,7 @@
                         <div class="job-data text-dark">
                             <div class="number">
                                 <i class="icofont-money-bag text-success"></i>
-                               $12k
+                               ${{info?.total_earned}}
                             </div>
                             Earned
                         </div>
@@ -98,20 +98,21 @@
                 </div>
                 </div>
               </div>
-             
+
             </div>
-           
+
           </div>
       </div>
       <div class="col-xl-8 order-xl-1">
-       
+
         <div class="card">
           <div class="card-header">
             <div class="row align-items-center">
               <div class="col-12 header-flex">
                   <div>
                     <h5>Proposal By:</h5>
-                    <h2 class="mb-0">Freelancer Name</h2>
+                    <h2 class="mb-0">
+                      {{info?.full_name}}</h2>
                   </div>
                 <div class="action-btn">
                     <a class="btn btn-dark text-white" >
@@ -130,54 +131,47 @@
           <div class="card-body">
                   <div class="row">
                     <div class="col-lg-12">
-                     
-      
+
+
                       <div class="job-section">
                         <h4>
                           Can complete project in:
-                          <span class="text-default">12 Days</span>
+                          <span class="text-default">{{info?.complete_time}}</span>
                         </h4>
                         <h4>
                           Offered Price:
-                          <a class="text-default" href=""> $50 </a>
+                          <a class="text-default" href=""> ${{info?.offered_price}} </a>
                         </h4>
                         <hr />
                       </div>
-      
+
                       <div class="job-section">
                         <h3>
                           Propsal Description:
                         </h3>
                         <p class="mt-2 text-justify">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                          Iure voluptatem doloremque iusto cupiditate, corrupti aut
-                          dolorum laudantium. Soluta exercitationem a ducimus tempore
-                          earum omnis doloremque rerum repellat ex totam nulla magnam
-                          provident ipsa repellendus perferendis sapiente aliquam
-                          aperiam enim rem, facere fugit, voluptatem doloribus
-                          distinctio laborum? Pariatur sequi ab sit accusamus
-                          distinctio dolores repellendus consequuntur!
+                          {{info?.proposal_desc}}
                         </p>
                         <hr />
                       </div>
-      
+
                       <div class="job-section">
                         <h3 class="mb-3">
                           Screening Questions Responses:
                         </h3>
                       <div *ngFor="let item of screeningQuestions;let i = index">
-                        <p class="question">Q{{i+1}}. {{item.title}} </p>
-                        <p class="answer"> {{item.answer}} </p>
+                        <p class="question">Q{{i+1}}. {{item.que}} </p>
+                        <p class="answer"> {{item.ans}} </p>
                       </div>
                       <hr>
                       </div>
 
-                     
+
                     </div>
-      
-                   
+
+
                   </div>
-                
+
           </div>
         </div>
       </div>

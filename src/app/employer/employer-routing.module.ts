@@ -20,11 +20,11 @@ const routes: Routes = [
         loadChildren: () => import('./employer-jobs/employer-jobs.module').then(m => m.EmployerJobsModule)
       },
       {
-        path:'job-proposals',
+        path:'job-proposals/:id',
         loadChildren: () => import('./job-proposals/job-proposals.module').then(m => m.JobProposalsModule)
       },
       {
-        path:'proposal',
+        path:'proposal/:id',
         loadChildren: () => import('./proposal-page/proposal-page.module').then(m => m.ProposalPageModule)
       },
       {
@@ -43,7 +43,7 @@ const routes: Routes = [
         path:'view-freelancer',
         loadChildren: () => import('./employer-view-freelancer/employer-view-freelancer.module').then(m => m.EmployerViewFreelancerModule)
       }
-      
+
     ]
   }
 ];

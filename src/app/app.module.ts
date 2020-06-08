@@ -7,6 +7,11 @@ import { HeaderComponent } from './main-website/header/header.component';
 import { HomepageComponent } from './main-website/homepage/homepage.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { MainWebsiteComponent } from './main-website/main-website.component';
+// Intregration Modules
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import {QuillModule} from "ngx-quill";
 
 @NgModule({
   declarations: [
@@ -15,14 +20,21 @@ import { MainWebsiteComponent } from './main-website/main-website.component';
     FooterComponent,
     MainWebsiteComponent,
     HomepageComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OwlModule
-  
+    OwlModule,
+
+    // Intregration Modules
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

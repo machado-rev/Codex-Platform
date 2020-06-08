@@ -14,7 +14,7 @@
               <div class="col-lg-8">
                 <div class="job-section">
                   <h3 class="job-title">
-                    Optimization of Existing almost complete Website
+                    {{job?.jobTitle}}
                   </h3>
                   <hr />
                 </div>
@@ -22,11 +22,11 @@
                 <div class="job-section">
                   <h5>
                     Date Posted:
-                    <span class="text-default">20 March, 2020</span>
+                    <span class="text-default">{{job?.jobPosteddate | date: 'MMMM d,y'}}</span>
                   </h5>
                   <h5>
                     Category:
-                    <a class="text-default" href="">Web Development </a>
+                    <a class="text-default" href="">{{job?.jobCategory}} </a>
                   </h5>
                   <hr />
                 </div>
@@ -36,14 +36,7 @@
                     Job Description:
                   </h4>
                   <p class="mt-2 text-justify">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure voluptatem doloremque iusto cupiditate, corrupti aut
-                    dolorum laudantium. Soluta exercitationem a ducimus tempore
-                    earum omnis doloremque rerum repellat ex totam nulla magnam
-                    provident ipsa repellendus perferendis sapiente aliquam
-                    aperiam enim rem, facere fugit, voluptatem doloribus
-                    distinctio laborum? Pariatur sequi ab sit accusamus
-                    distinctio dolores repellendus consequuntur!
+                    {{job?.jobDesc}}
                   </p>
                   <hr />
                 </div>
@@ -53,15 +46,26 @@
                       <div class="job-icon">
                         <i class="icofont-dollar"></i>
                         <div class="icon-text">
-                          <h6>$12/hr</h6>
-                          <p>
+                          <h6 *ngIf="job?.jobBudgetType == 'pay by hour'">${{job?.jobBudget}}/hr</h6>
+                          <h6 *ngIf="job?.jobBudgetType == 'fixed price'">${{job?.jobBudget}}</h6>
+                          <p *ngIf="job?.jobBudgetType == 'pay by hour'">
                             Hourly
+                          </p>
+                          <p *ngIf="job?.jobBudgetType == 'fixed price'">
+                            Fixed
                           </p>
                         </div>
                       </div>
                     </div>
                     <div class="col-sm-4">
-                      <div class="job-icon">
+                      <div *ngIf="job?.freelancerLevel == 'entrylevel'" class="job-icon">
+                        <i class="icofont-star"></i>
+                        <div class="icon-text">
+                          <h6>Entry Level</h6>
+                          <p>I am looking for a beginner</p>
+                        </div>
+                      </div>
+                      <div *ngIf="job?.freelancerLevel == 'intermediate'" class="job-icon">
                         <i class="icofont-star"></i>
                         <i class="icofont-star"></i>
                         <div class="icon-text">
@@ -69,12 +73,23 @@
                           <p>I am looking for a mix of experience and value</p>
                         </div>
                       </div>
+                      <div *ngIf="job?.freelancerLevel == 'expert'" class="job-icon">
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                        <div class="icon-text">
+                          <h6>Expert Level</h6>
+                          <p>I am willing to pay higher rates for the most experienced freelancers</p>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="job-icon">
                         <i class="icofont-wall-clock"></i>
                         <div class="icon-text">
-                          <h6>1 to 3 months</h6>
+                          <h6 *ngIf="job?.jobProjectLength == 'less than a month'">Less than 1 months</h6>
+                          <h6 *ngIf="job?.jobProjectLength == 'one to three months'">1 to 3 months</h6>
+                          <h6 *ngIf="job?.jobProjectLength == 'three to six months'">3 to 6 months</h6>
                           <p>Project Length</p>
                         </div>
                       </div>
@@ -86,7 +101,9 @@
                 <div class="job-section">
                   <h5>
                     Project Type:
-                    <span class="text-default">One-time Project</span>
+                    <span *ngIf="job?.jobProjectType == 'onetime project'" class="text-default">One-time Project</span>
+                    <span *ngIf="job?.jobProjectType == 'ongoing project'" class="text-default">Ongoing Project</span>
+                    <span *ngIf="job?.jobProjectType == 'complex project'" class="text-default">Complex Project</span>
                   </h5>
                   <hr />
                 </div>
@@ -96,55 +113,21 @@
                     Skills and expertise
                   </h4>
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" *ngFor="let exp of job?.jobExpertise">
                       <h6 class="mt-4">
-                        Frontend Development
+                        {{ exp?.expertise }}
                       </h6>
                       <div class="row">
-                          <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let option of exp.options">
                             <div class="tag">
-                                Web Design
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="tag">
-                                Web Development
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="tag">
-                                Bug Fixes
+                                {{option}}
                               </div>
                           </div>
                       </div>
-                     
-                     
+
+
                     </div>
 
-                    <div class="col-md-12">
-                        <h6 class="mt-4">
-                          Business size Experience
-                        </h6>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="tag">
-                                  Very small (less than 10)
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="tag">
-                                 Medium size 
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="tag">
-                                  Bug Fixes
-                                </div>
-                            </div>
-                        </div>
-                       
-                       
-                      </div>
                   </div>
                   <hr />
                 </div>
@@ -160,7 +143,9 @@
                         </h6>
                       </div>
                       <div class="col-8">
-                        <p class="p text-dark">Agency</p>
+                        <p *ngIf="job?.jobPreference.type == 'any'" class="p text-dark">Any</p>
+                        <p *ngIf="job?.jobPreference.type == 'independent'" class="p text-dark">Independent</p>
+                        <p *ngIf="job?.jobPreference.type == 'agency'" class="p text-dark">Agency</p>
                       </div>
                   </div>
                   <div class="row">
@@ -170,17 +155,22 @@
                       </h6>
                     </div>
                     <div class="col-8">
-                      <p class="p text-dark">At least 90%</p>
+                      <p *ngIf="job?.jobPreference.success_score == 'anysuccess'" class="p text-dark">Any</p>
+                      <p *ngIf="job?.jobPreference.success_score == 'above80'" class="p text-dark">Above 80%</p>
+                      <p *ngIf="job?.jobPreference.success_score == 'above90'" class="p text-dark">At least 90%</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-3">
                       <h6>
-                        Include Rising Talent:
+                        Amount Earned:
                       </h6>
                     </div>
                     <div class="col-8">
-                      <p class="p text-dark">Yes</p>
+                      <p *ngIf="job?.jobPreference.amount_earned == 'anyamount' " class="p text-dark">Any Amount Earned</p>
+                      <p *ngIf="job?.jobPreference.amount_earned == '100k' " class="p text-dark">100K+ Earned</p>
+                      <p *ngIf="job?.jobPreference.amount_earned == '10k' " class="p text-dark">10K+ Earned</p>
+                      <p *ngIf="job?.jobPreference.amount_earned == '1k' " class="p text-dark">1K+ Earned</p>
                     </div>
                 </div>
                 <div class="row">
@@ -190,17 +180,20 @@
                       </h6>
                     </div>
                     <div class="col-8">
-                      <p class="p text-dark"> Native or Bilingual</p>
+                      <p *ngIf="job?.jobPreference.english_level == 'anylevel'" class="p text-dark"> Any Level</p>
+                      <p *ngIf="job?.jobPreference.english_level == 'converstional'" class="p text-dark"> Coversational or better</p>
+                      <p *ngIf="job?.jobPreference.english_level == 'fluent'" class="p text-dark"> Fluent or better</p>
+                      <p *ngIf="job?.jobPreference.english_level == 'native'" class="p text-dark"> Native or Bilingual</p>
                     </div>
                 </div>
 
-                 
+
                 </div>
               </div>
 
               <div class="col-lg-4">
                   <div class="place-bid ">
-                      <a [routerLink]="['/bid-job']" class="btn btn-hero">
+                      <a (click)="placeBid()" class="btn btn-hero">
                           Place Bid
                       </a>
                   </div>
@@ -210,20 +203,20 @@
                     <h4>
                         About the employer
                     </h4>
-                   
+
                     <h5 class="text-primary"> Payment method not verified </h5>
-                   
-                    <h5> <span class="text-primary">54</span> job posted</h5>
-                  
-                    <h5> Member since Mar 14, 2016</h5>
-                   
+
+                    <h5> <span class="text-primary">{{employer?.totalJobPosted}}</span> job posted</h5>
+
+                    <h5> Member since {{employer?.memberAt | date:'MMMM d,y'}}</h5>
+
 
                     <h5>
                         Job link : <a href="#" target="_blank"> job link</a>
                     </h5>
-                    
-                    
-                    
+
+
+
                   </div>
               </div>
             </div>

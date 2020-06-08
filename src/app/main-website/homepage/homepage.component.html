@@ -11,7 +11,8 @@
 
 <!-- <p>It is fast and more valuable good time for search job.</p> -->
                             <div class="banner-btns">
-                                <button data-toggle="modal" data-target="#postJobModal" class="btn btn-white btn-circled mr-3">post a job</button>
+                                <button data-toggle="modal" data-target="#postJobModal" class="btn btn-white btn-circled mr-3" *ngIf="!share.role">post a job</button>
+                                <button class="btn btn-white btn-circled mr-3" routerLink="/employer/post-job" *ngIf="share.role == 'employer'">post a job</button>
                                 <a [routerLink]="['/find-job']" class="btn btn-white btn-circled">find a job</a>
                             </div>
 
@@ -344,13 +345,13 @@
 <div class="modal" id="postJobModal">
     <div class="modal-dialog">
       <div class="modal-content">
-  
-       
+
+
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-  
-       
+
+
         <div class="modal-body">
           <div class="form-segment">
                 <h4 class="text-center">
@@ -359,7 +360,7 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                   
+
                     <div class="col-md-6 text-center">
                         <div class="role-icon">
                             <img src="assets/img/icon/employer.svg" alt="">
@@ -368,11 +369,11 @@
                     </div>
                 </div>
             </div>
-           
-        </div>
-  
 
-  
+        </div>
+
+
+
       </div>
     </div>
   </div>

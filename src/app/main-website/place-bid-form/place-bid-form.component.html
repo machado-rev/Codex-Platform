@@ -17,25 +17,22 @@
                       Job Title:
                     </h4>
                     <h5>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eveniet sint repellat est quas molestiae?
+                        {{job?.jobTitle}}
                     </h5>
                     <hr />
                   </div>
-  
+
                   <div class="job-section">
                     <h5>
                       Price:
-                      <span class="text-default">$50/hr</span>
-                    </h5>
-                    <h5>
-                      Category:
-                      <a class="text-default" href="">Web Development </a>
+                      <span *ngIf="job?.jobBudgetType == 'pay by hour'" class="text-default">${{job?.jobBudget}}/hr</span>
+                      <span *ngIf="job?.jobBudgetType == 'fixed price'" class="text-default">${{job?.jobBudget}}</span>
                     </h5>
                     <hr />
                   </div>
-  
+
                   <div class="place-bid-form">
-                    <form>
+                    <form [formGroup]="form">
                         <div class="form-segment">
                           <h4 class="form-title">
                             Describe your Bid
@@ -44,6 +41,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea
+                                      formControlName="proposalDesc"
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter the description of your bid"
@@ -53,10 +51,19 @@
                                   <div class="field-info">
                                     0/1000 characters (minimum 50 required)
                                   </div>
+
+                                  <div class="validation" *ngIf="submitted && form.get('proposalDesc').invalid">
+                                    <p *ngIf="form.get('proposalDesc').errors.required">
+                                        Please enter the your proposal description!
+                                    </p>
+                                      <p *ngIf="form.get('proposalDesc').errors.minlength">
+                                        Description should have minimum 50 characters!
+                                      </p>
+                                  </div>
                             </div>
                           </div>
                         </div>
-        
+
                         <div class="form-segment">
                           <h4 class="form-title">
                            Enter your proposals:
@@ -65,19 +72,37 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="bid-amount">Bid Amount</label>
-                               <input class="form-control" id="bid-amount" type="number" placeholder="Enter the amount of your bid" />
+                               <input formControlName="offeredPrice" class="form-control" id="bid-amount" type="number" placeholder="Enter the amount of your bid" />
+                               <div class="validation" *ngIf="submitted && form.get('offeredPrice').invalid">
+                                 <p>
+                                   Please enter bid amount!
+                                 </p>
+                               </div>
                               </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="days">No. of days to complete project</label>
-                                 <input class="form-control" id="days" type="number" placeholder="Number of days to complete project"/>
+                                  <label for="days">How long will this project take</label>
+                                  <select class="form-control" formControlName="completeTime" id="days">
+                                   <option value="">Select the duration</option>
+                                    <option value="lessthanweek">Less than a week</option>
+                                    <option value="lessthanmonth">Less than a month</option>
+                                    <option value="1to3months">1 to 3 months</option>
+                                    <option value="3to6months">3 to 6 months</option>
+                                    <option value="morethan6months">More than 6 months</option>
+                                  </select>
+
+                                 <div class="validation" *ngIf="submitted && form.get('completeTime').invalid">
+                                   <p>
+                                     Please enter the completion time for the project!
+                                   </p>
+                                 </div>
                                 </div>
                               </div>
                           </div>
                         </div>
 
-                        <div class="form-segment">
+                        <div class="form-segment" *ngIf="screeningQuestions.length">
                             <h4 class="form-title">
                              Screening Questions
                             </h4>
@@ -87,17 +112,17 @@
                             </h6>
 
                             <div class="form-group" *ngFor="let item of screeningQuestions">
-                                <label [for]="item.id">{{item.title}}</label>
-                                <input type="text" [id]="item.id" class="form-control" placeholder="Type answer here">
+                                <label [for]="item.id">{{item.que}}</label>
+                                <textarea type="text" [(ngModel)]="item.ans" [ngModelOptions]="{standalone: true}" [id]="item.que" class="form-control" placeholder="Type answer here"></textarea>
                             </div>
-                            
+
                           </div>
-        
+
                         <div class="text-right mt-2">
                           <button
-                            type="button"
+                            type="submit"
                             class="btn btn-hero"
-                            data-toggle="modal" data-target="#confirmModal"
+                            (click)="placeBid()"
                           >
                             Submit Bid
                           </button>
@@ -105,15 +130,15 @@
                       </form>
                   </div>
                 </div>
-  
+
                 <div class="col-lg-4">
                     <div class="place-bid ">
-                        <a [routerLink]="['/job-desc']" class="btn btn-hero">
+                        <a [routerLink]="['/job-desc', job?.jobId]" class="btn btn-hero">
                             View Job Description
                         </a>
                     </div>
-  
-               
+
+
                 </div>
               </div>
             </div>
@@ -123,7 +148,7 @@
     </div>
   </div>
   <!--MAIN HEADER AREA END -->
-  
+
 
   <!--modals-->
 
@@ -131,26 +156,26 @@
 <div class="modal" id="confirmModal">
     <div class="modal-dialog">
       <div class="modal-content">
-  
-       
+
+
         <div class="modal-header">
           <h4 class="modal-title">Confirmation for your bid</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-  
-       
+
+
         <div class="modal-body">
           <div class="form-segment">
               Are you sure you want to place this bid.
             </div>
         </div>
-  
-       
+
+
         <div class="modal-footer">
-            <button type="button" class="btn btn-hero" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-hero" >Yes</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
         </div>
-  
+
       </div>
     </div>
   </div>

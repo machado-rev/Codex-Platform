@@ -29,7 +29,7 @@
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
 
-            
+
             <li class="nav-item">
               <a class="nav-link sidenav-link" routerLink="/employer/post-job" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
                 true}">
@@ -94,12 +94,12 @@
                       <span class="sidenav-normal">Pending Blogs </span>
                     </a>
                   </li>
-                 
+
                 </ul>
               </div>
             </li>
 
-          
+
             <li class="nav-item">
               <a class="nav-link sidenav-link" routerLink="/employer/post-blog" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
                 true}">
@@ -107,8 +107,14 @@
                 <span class="nav-link-text">Post a Blog</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a [routerLink]="['/']" class="nav-link sidenav-link">
+                <i class="icofont-home text-warning" aria-hidden="true"></i>
+                <span class="sidenav-normal">HomePage</span>
+              </a>
+            </li>
           </ul>
-        
+
         </div>
       </div>
     </div>

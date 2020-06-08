@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FindJobComponent } from './find-job.component';
 import { Route, RouterModule } from '@angular/router';
+import { NgxContentLoadingModule } from 'ngx-content-loading';
 
 const routes: Route[]=[
     {
@@ -14,6 +15,7 @@ const routes: Route[]=[
   declarations: [FindJobComponent],
   imports: [
     CommonModule,
+    NgxContentLoadingModule,
     RouterModule.forChild(routes)
   ]
 })

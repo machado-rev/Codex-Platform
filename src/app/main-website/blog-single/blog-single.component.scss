@@ -1,0 +1,143 @@
+@import '../blog-home/blog-home.component.scss';
+
+.blog-wrap{
+  padding: 60px 0;
+}
+.page-banner-area{
+    background: linear-gradient(135deg, #202020fa 0%, #0d0d0dd4 30%, rgba(17, 17, 17, 0.85) 100%), url(/assets/img/blog/blog-lg.jpeg), no-repeat 50% 50%;
+    background-size: cover;
+}
+.blog-post-small{
+    margin-bottom: 20px;
+}
+
+.author-details-big{
+    border-bottom: 1px solid #ccc;
+    border-top: 0;
+    img{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .more-details{
+        margin-left: 1rem;
+
+        .author-name{
+            margin: 0;
+            font-weight: 400;
+        }
+    }
+}
+.social-icons{
+    i{
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+.like-text{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #101010;
+    margin-left: 1rem;
+}
+/*like btn*/
+
+.like-btn {
+    border: none;
+    background: none;
+    outline: none;
+    display: inline-block;
+    font-family: inherit;
+    /* position relative and z index to manage the pseudo elements */
+    position: relative;
+    z-index: 5;
+  }
+  /* with a pseudo element include a decorative visual using svg as the pseudo elements' background */
+  .like-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 60px;
+    height: 60px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><circle id="circle" r="1"/></defs><g transform="translate(45 12)" fill="%23f0d78e"><use href="%23circle"/><use href="%23circle" x="2" y="-1" transform="scale(2)"/></g><g transform="translate(78 27)" fill="%23bff08e"><use href="%23circle"/><use href="%23circle" x="3" y="1" transform="scale(2)"/></g><g transform="translate(83 58)" fill="%238ef0a6"><use href="%23circle"/><use href="%23circle" x="1.5" y="3" transform="scale(2)"/></g><g transform="translate(65 83)" fill="%238ef0f0"><use href="%23circle"/><use href="%23circle" x="3.5" y="1" transform="scale(2)"/></g><g transform="translate(32 81)" fill="%238ea6f0"><use href="%23circle"/><use href="%23circle" x="1" y="1.5" transform="scale(2)"/></g><g transform="translate(15 53)" fill="%23bf8ef0"><use href="%23circle"/><use href="%23circle" x="-2" y="-1" transform="scale(2)"/></g><g transform="translate(20 28)" fill="%23f08ed7"><use href="%23circle"/><use href="%23circle" x=".5" y="-2" transform="scale(2)"/></g><g><circle r="30" stroke="%23f08e8e" stroke-width="4" fill="none" transform="translate(50 50)"/></g></svg>');
+    pointer-events: none;
+  }
+  /* with another pseudo element add a label atop the .like-btn, describing its purpose */
+  .like-btn::after {
+    content: "Like";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    font-size: 0.9rem;
+    padding: 0.35rem 0.6rem;
+    color: hsl(0, 0%, 94%);
+    background: hsl(0, 0%, 5%);
+    border-radius: 5px;
+    /* hide the label by default */
+    transform: translate(-50%, -30%);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: transform, opacity, visibility;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-delay: 0;
+  }
+  /* on hover & when focused show the label with a small vertical translation */
+  .like-btn:hover::after,
+  .like-btn:focus::after {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    visibility: visible;
+  }
+  /* style the svg with a gray-ish fill */
+  .like-btn svg {
+    fill: #adb5ce;
+    height: 20px;
+    width: auto;
+    display: block;
+  }
+  
+  /* when .active */
+  /* change the label in the pseudo element, avoiding the wrapping caused by the absolute position */
+  .like-btn.active::after {
+    content: "Undo like";
+    white-space: nowrap;
+  }
+  /* animate the decorative graphic to scale and then hide itself */
+  .like-btn.active::before {
+    animation: scaleOpacity 0.6s cubic-bezier(0.03, 1, 0.65, 1.22);
+    z-index: -5;
+  }
+  /* instantly change the fill of the .like-btn and animate the graphic to scale from 0 to 1 */
+  .like-btn.active svg {
+    fill: #f74b42;
+    animation: scale 0.3s 0.14s cubic-bezier(0.03, 1, 0.65, 1.22) both;
+  }
+  
+  /* keyframe animations for the .like-btn's :::before element and the nested svg */
+  @keyframes scale {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes scaleOpacity {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  

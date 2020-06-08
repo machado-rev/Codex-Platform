@@ -11,6 +11,9 @@
     }
 }
 
+.dd-icon{
+  height: 35px;
+}
 
 /*------------------------------------
   MENU NAVIGATION AREA
@@ -167,6 +170,24 @@
 .search-mobile.show-search{
   display: block;
 }
+
+.trans-navigation.black-header{
+ // border-bottom: 1px solid #ccc;
+  .navbar-nav .nav-link {
+    color: #101010;
+  }
+  .navbar-brand img{
+    filter: none;
+  }
+}
+.black-header.header-white{
+  .navbar-nav .nav-link {
+    color: #fff;
+  }
+  .navbar-brand img{
+    filter: brightness(0) invert(1);
+  }
+}
 @keyframes fade_up{
   0%{
     transform: translateY(20px);
@@ -245,6 +266,18 @@
   .navbar-brand{
     img{
       width: 70px;
+    }
+  }
+}
+.dropdown-menu{
+  .nav-link{
+    color:#101010 !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 !important;
+    transition: all 0.3s;
+
+    &:hover{
+      color:#fff !important;
     }
   }
 }

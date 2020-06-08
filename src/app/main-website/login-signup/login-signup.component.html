@@ -1,148 +1,276 @@
-
 <div class="wrapper">
-    <div class="container">
-      
-        <section id="formHolder">
-     
-           <div class="row">
-     
-              <!-- Brand Box -->
-              <div class="col-lg-6 brand">
-                 <a routerLink="/" class="logo">
-                     <img src="assets/img/logo.PNG" alt="" />
-                 </a>
-     
-                 <div class="heading">
-                    <h2>Codex on Althash</h2>
-                    <p>Leading Software Innovation</p>
-                    <img src="assets/img/login-img.svg" alt="login image" class="login-img">
-                 </div>
-     
-                
+  <div class="container">
+    <section id="formHolder">
+      <div class="row no-gutters">
+        <!-- Brand Box -->
+        <div class="col-lg-6 brand">
+          <a routerLink="/" class="logo">
+            <img src="assets/img/logo.PNG" alt="" />
+          </a>
+
+          <div class="heading">
+            <h2>Codex on Althash</h2>
+            <p>Leading Software Innovation</p>
+            <img
+              src="assets/img/login-img.svg"
+              alt="login image"
+              class="login-img"
+            />
+          </div>
+        </div>
+
+        <!-- Form Box -->
+        <div class="col-lg-6 form">
+          <!-- Login Form -->
+          <div class="login form-peice login-piece switched">
+            <div class="form-head">
+              <h2 class="gradient-text-color" *ngIf="isFreelancer">
+                Freelancer Login
+              </h2>
+              <h2 class="gradient-text-color" *ngIf="!isFreelancer">
+                Employer Login
+              </h2>
+            </div>
+            <form
+              [formGroup]="loginform"
+              (submit)="loginFreelancer()"
+              class="login-form"
+            >
+              <div class="form-group">
+                <label for="loginemail">Username</label>
+                <input
+                  formControlName="userName"
+                  type="text"
+                  name="loginusername"
+                  id="loginusername"
+                  required
+                />
               </div>
-     
-     
-              <!-- Form Box -->
-              <div class="col-lg-6 form">
-     
-                 <!-- Login Form -->
-                 <div class="login form-peice login-piece switched">
-                     <div class="form-head">
-                        <h2 class="gradient-text-color" *ngIf="isFreelancer">
-                           Freelancer Login
-                       </h2>
-                       <h2 class="gradient-text-color" *ngIf="!isFreelancer">
-                          Employer Login
-                      </h2>
-                     </div>
-                    <form class="login-form" action="#" method="post">
-                       <div class="form-group">
-                          <label for="loginemail">Email Adderss</label>
-                          <input type="email" name="loginemail" id="loginemail" required>
-                       </div>
-     
-                       <div class="form-group">
-                          <label for="loginPassword">Password</label>
-                          <input type="password" name="loginPassword" id="loginPassword" required>
-                       </div>
-     
-                       <div class="CTA" *ngIf="isFreelancer">
-                          <input type="button" value="Login" (click)="loginFreelancer()">
-                          <a (click)="showSignup()" class="switch">I'm new here</a>
-                       </div>
 
-                       <div class="CTA" *ngIf="!isFreelancer">
-                        <input type="button" value="Login" (click)="loginEmployer()">
-                        <a (click)="showSignup()" class="switch">I'm new here</a>
-                     </div>
-                    </form>
-                 </div><!-- End Login Form -->
-     
-                 <!-- Signup Form -->
-                 <div class="signup form-peice signup-piece switched">
-                    <div class="form-head">
-                        <h2 class="gradient-text-color" *ngIf="isFreelancer">
-                            Freelancer SignUp
-                        </h2>
-                        <h2 class="gradient-text-color" *ngIf="!isFreelancer">
-                           Employer SignUp
-                       </h2>
-                    </div>
-                    <form class="signup-form" action="#" method="post">
-     
-                       <div class="form-group">
-                          <label for="name">Full Name</label>
-                          <input type="text" name="username" id="name" class="name">
-                          <span class="error"></span>
-                       </div>
-     
-                       <div class="form-group">
-                          <label for="email">Email Adderss</label>
-                          <input type="email" name="emailAdress" id="email" class="email">
-                          <span class="error">
-
-                          </span>
-                       </div>
-     
-                       <div class="form-group">
-                          <label for="phone">Phone Number - <small>Optional</small></label>
-                          <input type="text" name="phone" id="phone">
-                       </div>
-     
-                       <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" name="password" id="password" class="pass">
-                          <span class="error">
-
-                          </span>
-                       </div>
-     
-                       <div class="form-group">
-                          <label for="passwordCon">Confirm Password</label>
-                          <input type="password" name="passwordCon" id="passwordCon" class="passConfirm">
-                          <span class="error"></span>
-                       </div>
-     
-                       <div class="CTA">
-                          <input type="button" value="Signup Now" (click)="showVerify()">
-                          <a (click)="showLogin()" class="switch">I already have an account</a>
-                       </div>
-                    </form>
-                 </div><!-- End Signup Form -->
-
-                 <!-- Confirm Code Form -->
-                 <div class="verify form-peice verify-piece switched">
-                  <div class="form-head">
-                    <h2 class="gradient-text-color">
-                       Welcome to the platform.
-                       <br>
-                       Verify your email.
-                   </h2>
-                   <p>
-                      A code has been sent to your registered email ID. Enter the code below to get started.
-                   </p>
-                  </div>
-                 <form class="login-form" action="#" method="post">
-                    <div class="form-group">
-                       <label for="code">Verification code</label>
-                       <input type="text" name="code" id="code" required>
-                    </div>
-  
-  
-                    <div class="CTA">
-                       <input type="button" value="Verify" (click)="verifyFreelancer()">
-                       <a class="switch">Resend Code</a>
-                    </div>
-                 </form>
-              </div><!-- End Confirm Code Form -->
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  formControlName="password"
+                  type="password"
+                  name="loginPassword"
+                  id="loginPassword"
+                  required
+                />
               </div>
-           </div>
-     
-        </section>
-     
-     
-       
-     
-     </div>
+
+              <div class="CTA">
+                <button type="submit" id="loginBtn">Login</button>
+                <a (click)="forgotPassword()" class="switch">Forgot Password?</a>
+              </div>
+
+              <div class="mt-4 CTA">
+                <a (click)="showSignup()" class="switch">I'm new here</a>
+              </div>
+            </form>
+          </div>
+          <!-- End Login Form -->
+
+          <!-- Signup Form -->
+          <div class="signup form-peice signup-piece switched">
+            <div class="form-head signup-head my-1">
+              <h2 class="gradient-text-color" *ngIf="isFreelancer">
+                Freelancer SignUp
+              </h2>
+              <h2 class="gradient-text-color" *ngIf="!isFreelancer">
+                Employer SignUp
+              </h2>
+            </div>
+            <form class="signup-form" [formGroup]="form" (submit)="register()">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                  formControlName="fullName"
+                  type="text"
+                  id="name"
+                  class="name"
+                />
+                <span
+                  *ngIf="submitted && form.get('fullName').invalid"
+                  class="validation"
+                  >Please enter your name!</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  id="email"
+                  class="email"
+                />
+                <span
+                  *ngIf="submitted && form.get('email').invalid"
+                  class="validation"
+                  >Please enter your email!</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  formControlName="userName"
+                  type="text"
+                  id="username"
+                  class="name"
+                />
+                <span
+                  *ngIf="submitted && form.get('userName').invalid"
+                  class="validation"
+                  >Please enter your username!</span
+                >
+                <span *ngIf="usernameExist" class="validation"
+                  >Username already exist!</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="phone"
+                  >Phone Number - <small>Optional</small></label
+                >
+                <input
+                  formControlName="phoneNumber"
+                  type="number"
+                  name="phone"
+                  id="phone"
+                />
+                <div
+                class="validation"
+                *ngIf="
+                submitted &&
+                  form.get('phoneNumber').invalid
+                "
+              >
+                <p *ngIf="form.get('phoneNumber').errors.minlength || form.get('phoneNumber').errors.maxlength">
+                  Enter a valid phone number!
+                </p>
+              </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  formControlName="password"
+                  type="password"
+                  id="password1"
+                />
+                <div class="validation"
+                  *ngIf="submitted && form.get('password').invalid"
+                  class="validation">
+                  <p *ngIf="form.controls['password'].hasError('required')"> Please enter password! </p>
+                  <p *ngIf="(form.controls['password'].hasError('minlength') || form.controls['password'].hasError('hasNumber') || form.controls['password'].hasError('hasCapitalCase'))">Password must contain atleast 6 characters which contain 1 uppercase letter and a number!</p>
+                </div>
+              </div>
+
+              <div class="CTA">
+                <button type="submit" id="signupBtn">Signup Now</button>
+                <a (click)="showLogin()" class="switch"
+                  >I already have an account</a
+                >
+              </div>
+            </form>
+          </div>
+          <!-- End Signup Form -->
+
+          <!-- Confirm Code Form -->
+          <div class="verify form-peice verify-piece switched">
+            <div class="form-head">
+              <h2 class="gradient-text-color">
+                Welcome to the platform.
+                <br />
+                Verify your email.
+              </h2>
+              <p>
+                A code has been sent to your registered email ID. Enter the code
+                below to get started.
+              </p>
+            </div>
+            <form
+              class="login-form"
+              [formGroup]="verifyCode"
+              (submit)="verifyFreelancer()"
+            >
+              <div class="form-group">
+                <label for="code">Verification code</label>
+                <input
+                  formControlName="verifyCode"
+                  type="text"
+                  name="code"
+                  id="code"
+                  required
+                />
+              </div>
+
+              <div class="CTA">
+                <button type="submit">Verify</button>
+                <a class="switch">Resend Code</a>
+              </div>
+            </form>
+          </div>
+          <!-- End Confirm Code Form -->
+
+          <!-- REset PAssword Form -->
+          <div class="verify form-peice reset-piece switched">
+            <div class="form-head">
+              <h2 class="gradient-text-color">
+                Reset Password
+              </h2>
+              <p>
+                Fill the form below to reset the password.
+              </p>
+            </div>
+            <form
+              class="login-form"
+              [formGroup]="resetPasswordForm"
+              (submit)="resetPassword()"
+            >
+            <div class="form-group">
+              <label for="passcode">Verification Code</label>
+              <input
+              formControlName="verifyCode"
+                type="text"
+                name="passcode"
+                id="passcode"
+                required
+              />
+            </div>
+
+              <div class="form-group">
+                <label for="newpassword">New Password</label>
+                <input
+                  formControlName="newPassword"
+                  type="password"
+                  name="newpassword"
+                  id="newpassword"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input
+                formControlName="cpassword"
+                  type="password"
+                  name="confirmpassword"
+                  id="confirmpassword"
+                  required
+                />
+              </div>
+
+              <div class="CTA">
+                <input type="submit" value="Reset" />
+              </div>
+            </form>
+          </div>
+          <!-- End REset PAssword Form -->
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
-

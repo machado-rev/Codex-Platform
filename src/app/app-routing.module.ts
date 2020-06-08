@@ -7,7 +7,7 @@ import { MainWebsiteComponent } from './main-website/main-website.component';
 const routes: Routes = [
   {
     path:'',
-    component: MainWebsiteComponent, 
+    component: MainWebsiteComponent,
     children:[
       {
         path:'',
@@ -30,12 +30,24 @@ const routes: Routes = [
         loadChildren: () => import('./main-website/freelancer-registration/freelancer-registration.module').then(m => m.FreelancerRegistrationModule)
       },
       {
-        path:'job-desc',
+        path:'job-desc/:id',
         loadChildren: () => import('./main-website/job-desc/job-desc.module').then(m => m.JobDescModule)
       },
       {
-        path:'bid-job',
+        path:'bid-job/:id',
         loadChildren: () => import('./main-website/place-bid-form/place-bid-form.module').then(m => m.PlaceBidFormModule)
+      },
+      {
+        path:'blog',
+        loadChildren: () => import('./main-website/blog-home/blog-home.module').then(m => m.BlogHomeModule)
+      },
+      {
+        path:'blog/post',
+        loadChildren: () => import('./main-website/blog-single/blog-single.module').then(m => m.BlogSingleModule)
+      },
+      {
+        path:'blog/category',
+      loadChildren: () => import('./main-website/blog-category/blog-category.module').then(m => m.BlogCategoryModule)
       }
     ]
   },
